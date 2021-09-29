@@ -16,8 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from suministro_app.views import IndexView
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', IndexView.as_view()),
+    path('', IndexView.as_view(), name='inicio'),
+    path('personal/', include('apps.personal.urls')),
+    path('personal/', include('apps.producto.urls')),
+    path('solicitud/', include('apps.solicitud.urls')),
 ]

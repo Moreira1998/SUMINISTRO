@@ -1,0 +1,100 @@
+{% extends 'index.html' %}
+{% block pageContent %}
+    {% if estadoSolicitud_list %}
+        <h2 class="mt-3">Registro De Solicitudes</h2>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="{% url 'inicio' %}">Dashboard</a></li>
+            <li class="breadcrumb-item active">Solicitudes</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Registro De Solicitudes
+                <div class="ml-auto p-2">
+                    <a href="{% url 'solicitud:solicitud_reporte' %}"
+                       class="btn btn-success btn-circle btn-sm">
+                        <i class="fas fa-file-excel"></i>
+                        Reporte Solicitudes Excel
+                    </a>
+                </div>
+            </div>
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead>
+                    <tr>
+                        <th scope="col">Producto</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Existencia</th>
+                        <th scope="col">Area</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th scope="col">Producto</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Existencia</th>
+                        <th scope="col">Area</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                    </tfoot>
+                    <tbody>
+                    {% for solicitud in estadoSolicitud_list %}
+                        {% if solicitud.status == False %}
+                            {% if solicitud.producto.cantidad < solicitud.cantidad %}
+                                <tr class="table-danger">
+                                    <td>{{ solicitud.producto }}</td>
+                                    <td>{{ solicitud.cantidad }}</td>
+                                    <td><b>{{ solicitud.producto.cantidad }}</b></td>
+                                    <td>{{ solicitud.area }}</td>
+                                    <td>{{ solicitud.fecha }}</td>
+                                    <td>
+                                        <a href="{% url 'solicitud:solicitud_update' solicitud.id %}"
+                                           class="btn btn-primary btn-circle btn-sm">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a href="{% url 'solicitud:solicitud_delete' solicitud.id %}"
+                                           class="btn btn-danger btn-circle btn-sm">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+
+                                        <a href="{% url 'solicitud:solicitud_stock' solicitud.id %}"
+                                           class="btn btn-success btn-circle btn-sm">
+                                            <i class="fas fa-check"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td>{{ solicitud.producto }}</td>
+                                    <td>{{ solicitud.cantidad }}</td>
+                                    <td><b>{{ solicitud.producto.cantidad }}</b></td>
+                                    <td>{{ solicitud.area }}</td>
+                                    <td>{{ solicitud.fecha }}</td>
+                                    <td>
+                                        <a href="{% url 'solicitud:solicitud_update' solicitud.id %}"
+                                           class="btn btn-primary btn-circle btn-sm">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a href="{% url 'solicitud:solicitud_delete' solicitud.id %}"
+                                           class="btn btn-danger btn-circle btn-sm">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+
+                                        <a href="{% url 'solicitud:solicitud_stock' solicitud.id %}"
+                                           class="btn btn-success btn-circle btn-sm">
+                                            <i class="fas fa-check"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
