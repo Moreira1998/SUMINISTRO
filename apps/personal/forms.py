@@ -1,5 +1,27 @@
 from django import forms
+from django.contrib.auth.models import User
+
 from apps.personal.models import Personal, Rol, Area
+
+
+class UserForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = '__all__'
+        labels = {
+            'username': 'Nombre de usuario',
+            'last_name': 'Nombre',
+            'first_name': 'Apellido',
+            'password': 'Password',
+            'email': 'Correo electronico'
+        }
+        widgets = {
+            'username': forms.TextInput(attrs={'class': 'form-control'}),
+            'last_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'first_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'password': forms.PasswordInput(attrs={'class': 'form-control'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control'}),
+        }
 
 
 # -------------------------------------------------------->

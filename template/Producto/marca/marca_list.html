@@ -1,0 +1,76 @@
+{% extends 'index.html' %}
+{% block pageContent %}
+    {% if marca_list %}
+        <h2 class="mt-3">Registro De Marca</h2>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="{% url 'producto:producto_list' %}">Productos</a></li>
+            <li class="breadcrumb-item active">Marca</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-body">
+                Agregar un nuevo registro al sistema de suministro <strong>Passus Velox</strong>
+                <div class=" py-3">
+                    <a href="{% url 'producto:marca_new' %}" class="btn btn-primary"><i
+                            class="fas fa-plus-circle"></i> Agrerar</a>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Registro De Marca
+            </div>
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead>
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Descripcion</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Descripcion</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                    </tfoot>
+                    <tbody>
+                    {% for marca in marca_list %}
+                        <tr>
+                            <td>{{ marca.nombre }}</td>
+                            <td>{{ marca.descripcion }}</td>
+                            <td>
+                                <a href="{% url 'producto:marca_update' marca.id %}"
+                                   class="btn btn-success btn-circle btn-sm">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a href="{% url 'producto:marca_delete' marca.id %}"
+                                   class="btn btn-danger btn-circle btn-sm">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    {% else %}
+        <h1 class="mt-4">Registro De Personal</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="">Dashboard</a></li>
+            <li class="breadcrumb-item active">Trabajador</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-body">
+                Agregar un nuevo registro al sistema de suministro <strong>Passus Velox</strong>
+                <div class=" py-3">
+                    <a href="{% url 'producto:marca_new' %}" class="btn btn-primary"><i
+                            class="fas fa-plus-circle"></i> Agrerar</a>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

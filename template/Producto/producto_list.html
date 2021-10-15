@@ -8,6 +8,26 @@
         </ol>
         <div class="card mb-4">
             <div class="card-body">
+                <div class="row">
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card bg-success text-white mb-4">
+                            <div class="card-body"><i class="fas fa-landmark"></i> Categoria</div>
+                            <div class="card-footer d-flex align-items-center justify-content-between">
+                                <a class="small text-white stretched-link" href="{% url 'producto:categoria_list' %}">Acceder</a>
+                                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card bg-danger text-white mb-4">
+                            <div class="card-body"><i class="fas fa-marker"></i> Marca</div>
+                            <div class="card-footer d-flex align-items-center justify-content-between">
+                                <a class="small text-white stretched-link" href="{% url 'producto:marca_list' %}">Acceder</a>
+                                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 Agregar un nuevo registro al sistema de suministro <strong>Passus Velox</strong>
                 <div class=" py-3">
                     <a href="{% url 'producto:producto_new' %}" class="btn btn-primary"><i
@@ -19,6 +39,13 @@
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>
                 Registro De Producto
+                <div class=" py-3">
+                    <a href="{% url 'solicitud:productos_reporte' %}"
+                       class="btn btn-success btn-circle">
+                        <i class="fas fa-file-excel"></i>
+                        Reporte Productos Excel
+                    </a>
+                </div>
             </div>
             <div class="card-body">
                 <table id="datatablesSimple">
