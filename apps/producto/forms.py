@@ -37,14 +37,14 @@ class CategoriaForm(forms.ModelForm):
 
 
 # -------------------------------------------------------->
-# Forms Producto
+# Forms producto
 
 class ProductoForm(forms.ModelForm):
     class Meta:
         model = Producto
         fields = '__all__'
         labels = {
-            'id': 'Id Producto',
+            'id': 'Id producto',
             'nombre': 'Nombre',
             'categoria': 'Categoria',
             'marca': 'Marca',

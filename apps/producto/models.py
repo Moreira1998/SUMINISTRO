@@ -47,8 +47,8 @@ class Producto(models.Model):
     status = models.BooleanField(default=True)
 
     class Meta:
-        verbose_name = 'Producto'
-        verbose_name_plural = 'Producto'
+        verbose_name = 'producto'
+        verbose_name_plural = 'producto'
 
     def __str__(self):
         return self.nombre

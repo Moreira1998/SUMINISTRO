@@ -37,7 +37,7 @@ class Migration(migrations.Migration):
             },
         ),
         migrations.CreateModel(
-            name='Producto',
+            name='producto',
             fields=[
                 ('id', models.CharField(max_length=100, primary_key=True, serialize=False)),
                 ('nombre', models.CharField(max_length=100, null=True)),
@@ -47,8 +47,8 @@ class Migration(migrations.Migration):
                 ('marca', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='producto.marca')),
             ],
             options={
-                'verbose_name': 'Producto',
-                'verbose_name_plural': 'Producto',
+                'verbose_name': 'producto',
+                'verbose_name_plural': 'producto',
             },
         ),
     ]

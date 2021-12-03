@@ -98,7 +98,7 @@ class ReporteExcelSolicitud(TemplateView):
         ws.merge_cells('B3:E3')
         ws['B3'].font = titulo2
 
-        ws['B5'] = 'Producto '
+        ws['B5'] = 'producto '
         ws['B5'].font = font
         ws['B5'].alignment = align
         ws['B5'].border = border
@@ -199,7 +199,7 @@ class ReporteExcelAprobados(TemplateView):
         ws['B7'] = 'Autorizado por: _________________________________________________'
         ws.merge_cells('B7:E7')
 
-        ws['B9'] = 'Producto '
+        ws['B9'] = 'producto '
         ws['B9'].font = font
         ws['B9'].alignment = align
         ws['B9'].border = border

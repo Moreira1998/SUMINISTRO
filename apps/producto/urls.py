@@ -8,7 +8,7 @@ app_name = 'producto'
 urlpatterns = [
 
     # -------------------------------------------------------->
-    # Path Producto
+    # Path producto
 
     path('productoList', login_required(ProductoList.as_view()), name='producto_list'),
     path('productoNew', login_required(ProductoNew.as_view()), name='producto_new'),

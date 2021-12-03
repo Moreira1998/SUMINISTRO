@@ -9,7 +9,7 @@ class SolicitudForm(forms.ModelForm):
         model = Solicitud
         fields = '__all__'
         labels = {
-            'producto': 'Producto',
+            'producto': 'producto',
             'cantidad': 'Cantidad',
             'fecha': 'Fecha',
             'area': 'Area'

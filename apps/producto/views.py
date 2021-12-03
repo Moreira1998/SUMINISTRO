@@ -9,7 +9,7 @@ from django.urls import reverse_lazy
 
 class ProductoList(ListView):
     model = Producto
-    template_name = 'Producto/producto_list.html'
+    template_name = 'producto/producto_list.html'
     context_object_name = 'producto_list'
     queryset = Producto.objects.all()
 
