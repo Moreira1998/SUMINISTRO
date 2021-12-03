@@ -99,6 +99,27 @@
             <li class="breadcrumb-item"><a href="">Dashboard</a></li>
             <li class="breadcrumb-item active">Producto</li>
         </ol>
+        <div class="row">
+                <div class="col-xl-3 col-md-6">
+                    <div class="card bg-success text-white mb-4">
+                        <div class="card-body"><i class="fas fa-landmark"></i> Categoria</div>
+                        <div class="card-footer d-flex align-items-center justify-content-between">
+                            <a class="small text-white stretched-link" href="{% url 'producto:categoria_list' %}">Acceder</a>
+                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card bg-danger text-white mb-4">
+                        <div class="card-body"><i class="fas fa-marker"></i> Marca</div>
+                        <div class="card-footer d-flex align-items-center justify-content-between">
+                            <a class="small text-white stretched-link"
+                               href="{% url 'producto:marca_list' %}">Acceder</a>
+                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         <div class="card mb-4">
             <div class="card-body">
                 Agregar un nuevo registro al sistema de suministro <strong>Passus Velox</strong>
