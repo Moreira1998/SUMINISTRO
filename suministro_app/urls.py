@@ -19,9 +19,6 @@ from suministro_app.views import IndexView
 from django.urls import path, include
 from django.contrib.auth.views import LoginView, logout_then_login
 
-from django.conf import settings
-from django.conf.urls.static import static
-
 
 urlpatterns = [
     path('', LoginView.as_view(), name='login'),
@@ -30,6 +27,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', login_required(IndexView.as_view()), name='inicio'),
     path('personal/', include('apps.personal.urls')),
-    path('producto/', include('apps.producto.urls')),
+    path('personal/', include('apps.producto.urls')),
     path('solicitud/', include('apps.solicitud.urls')),
-]  +static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+]

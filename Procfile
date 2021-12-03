@@ -1,1 +1,1 @@
-web: gunicorn suministro_app.wsgi --log--file -
+web: gunicorn suministro_app.wsgi --log-file -
