@@ -27,7 +27,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', login_required(IndexView.as_view()), name='inicio'),
     path('personal/', include('apps.personal.urls')),
-    path('personal/', include('apps.producto.urls')),
+    path('producto/', include('apps.producto.urls')),
     path('solicitud/', include('apps.solicitud.urls')),
 
 ]
