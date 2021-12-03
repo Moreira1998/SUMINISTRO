@@ -53,5 +53,20 @@
                 </table>
             </div>
         </div>
+    {% else %}
+        <h1 class="mt-4">Registro De Estado Solicitudes</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="">Dashboard</a></li>
+            <li class="breadcrumb-item active">Estado Solicitudes</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-body">
+                Agregar un nuevo registro al sistema de suministro <strong>Passus Velox</strong>
+                <div class=" py-3">
+                    <a href="{% url 'solicitud:solicitud_new' %}" class="btn btn-primary"><i
+                            class="fas fa-plus-circle"></i> Agrerar</a>
+                </div>
+            </div>
+        </div>
     {% endif %}
 {% endblock %}
