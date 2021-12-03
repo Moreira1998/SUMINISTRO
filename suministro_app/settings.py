@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-r0hjif!+z1$_t$$bpk%m+n%c0t8nx#mk9#_$klxcv%_&&@0l)1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'suministro.herokuapp.com']
+ALLOWED_HOSTS = ['*',]
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
