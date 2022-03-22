@@ -9,12 +9,17 @@
         <div class="card mb-4">
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>
-                Registro De Solicitudes
+                Solicitudes Pendientes
                 <div class="ml-auto p-2">
                     <a href="{% url 'solicitud:solicitud_reporte' %}"
                        class="btn btn-success btn-circle btn-sm">
                         <i class="fas fa-file-excel"></i>
                         Reporte Solicitudes Excel
+                    </a>
+                     <a href="{% url 'solicitud:solicitud_reporte' %}"
+                       class="btn btn-success btn-circle btn-sm">
+                        <i class="fas fa-file-excel"></i>
+                        Reporte De Entrega Excel
                     </a>
                 </div>
             </div>
@@ -59,11 +64,6 @@
                                            class="btn btn-danger btn-circle btn-sm">
                                             <i class="fas fa-trash"></i>
                                         </a>
-
-                                        <a href="{% url 'solicitud:solicitud_stock' solicitud.id %}"
-                                           class="btn btn-primary btn-circle btn-sm">
-                                            <i class="fas fa-check"></i>
-                                        </a>
                                     </td>
                                 </tr>
                             {% else %}
@@ -99,7 +99,7 @@
     {% else %}
         <h1 class="mt-4">Registro De Solicitud</h1>
         <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item"><a href="">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'inicio' %}">Dashboard</a></li>
             <li class="breadcrumb-item active">Solicitudes</li>
         </ol>
         <div class="card mb-4">

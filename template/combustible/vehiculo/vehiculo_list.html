@@ -1,0 +1,89 @@
+{% extends 'index.html' %}
+{% block pageContent %}
+    {% if vehiculo_list %}
+        <h2 class="mt-3">Registro De Vehiculo</h2>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="{% url 'inicio' %}">Dashboard</a></li>
+            <li class="breadcrumb-item active">Vehiculo</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-body">
+                Agregar un nuevo registro al sistema de suministro <strong>Passus Velox</strong>
+                <div class=" py-3">
+                    <a href="{% url 'combustible:vehiculo_new' %}" class="btn btn-primary"><i
+                            class="fas fa-plus-circle"></i> Agrerar</a>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Registro De Vehiculo
+            </div>
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead>
+                    <tr>
+                        <th scope="col">Placa</th>
+                        <th scope="col">Vehiculo</th>
+                        <th scope="col">Combustible</th>
+                        <th scope="col">Asignado</th>
+                        <th scope="col">Modelo</th>
+                        <th scope="col">Accion</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th scope="col">Placa</th>
+                        <th scope="col">Vehiculo</th>
+                        <th scope="col">Combustible</th>
+                        <th scope="col">Asignado</th>
+                        <th scope="col">Modelo</th>
+                        <th scope="col">Accion</th>
+                    </tr>
+                    </tfoot>
+                    <tbody>
+                    {% for vehiculo in vehiculo_list %}
+                        <tr>
+                            <td>{{ vehiculo.placa }}</td>
+                            <td>{{ vehiculo.vehiculo }}</td>
+                            <td>{{ vehiculo.combustible }}</td>
+                            <td>{{ vehiculo.asignar }}</td>
+                            <td>{{ vehiculo.modelo }}</td>
+                            <td class="col-lg-2 col-md-2">
+                                <a href="{% url 'combustible:vehiculo_update' vehiculo.placa %}"
+                                   class="btn btn-success btn-circle btn-sm">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a href="{% url 'combustible:vehiculo_delete' vehiculo.placa %}"
+                                   class="btn btn-danger btn-circle btn-sm">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                                <a href="{% url 'combustible:vehiculo_detail' vehiculo.placa %}"
+                                   class="btn btn-primary btn-circle btn-sm">
+                                    <i class="fas fa-info-circle"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    {% else %}
+        <h1 class="mt-4">Registro De Vehiculo</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="{% url 'inicio' %}">Dashboard</a></li>
+            <li class="breadcrumb-item active">Vehiculo</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-body">
+                Agregar un nuevo registro al sistema de suministro <strong>Passus Velox</strong>
+                <div class=" py-3">
+                    <a href="{% url 'combustible:vehiculo_new' %}" class="btn btn-primary"><i
+                            class="fas fa-plus-circle"></i> Agrerar</a>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'index.html' %}
+{% block pageContent %}
+    {% if form.errors %}
+        <div class="alert alert-danger m-4" role="alert">
+            Verifique los valores <strong> - intente de nuevo!</strong>
+        </div>
+    {% endif %}
+    <ol class="breadcrumb mb-4 m-lg-3">
+        <li class="breadcrumb-item"><a href="{% url 'combustible:consumo_list' %}">Consumo</a></li>
+        <li class="breadcrumb-item active">Registro</li>
+    </ol>
+    <div class="card shadow-lg border-0 rounded-lg mt-5 mx-4">
+        <div class="card-header">
+            <strong>Registro De consumo </strong>// {{ consumo.fecha }}
+        </div>
+        <div class="card-body">
+            <form method="post">{% csrf_token %}
+                <div class="row">
+                    <div class="col border-bottom m-lg-3">
+                        <label for=""><b>Vehiculo: </b> {{ consumo.vehiculo }}</label>
+                    </div>
+                    <div class="col border-bottom m-lg-3">
+                        <label for=""><b>Factura: </b> {{ consumo.factura }}</label>
+                    </div>
+                    <div class="col border-bottom m-lg-3">
+                        <label for=""><b>Monto: </b> {{ consumo.monto }}</label>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col border-bottom m-lg-3">
+                        <label for=""><b>Km Inicio: </b> {{ consumo.km_inicio }}</label>
+                    </div>
+                    <div class="col border-bottom m-lg-3">
+                        <label for=""><b>Km Final:</b> {{ consumo.km_fin }}</label>
+                    </div>
+                    <div class="col border-bottom m-lg-3">
+                        <label for=""><b>Km Recorrido:</b> {{ consumo.RestaKM }}</label>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col border-bottom m-lg-3">
+                        <label for=""><b>Rendimiento Esperado: </b> {{ consumo.vehiculo.rendimiento }} KPL</label>
+                    </div>
+                    <div class="col border-bottom m-lg-3">
+                        {% if  consumo.Rendimiento < consumo.vehiculo.rendimiento %}
+                            <label  class="bg-warning" for=""><b>Rendimiento obtenido:</b> {{ consumo.Rendimiento }} KPL</label>
+                        {% else %}
+                             <label for=""><b>Rendimiento obtenido:</b> {{ consumo.Rendimiento }}</label>
+                        {% endif %} 
+
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+{% endblock pageContent %}

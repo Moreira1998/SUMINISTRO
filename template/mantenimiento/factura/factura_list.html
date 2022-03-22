@@ -1,0 +1,100 @@
+{% extends 'index.html' %}
+{% block pageContent %}
+    {% if factura_list %}
+        <h2 class="mt-3">Registro De Factura</h2>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="{% url 'mantenimiento:mantenimiento_list' %}">Mantenimiento</a></li>
+            <li class="breadcrumb-item active">Factura</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-body">
+                Agregar un nuevo registro al sistema de suministro <strong>Passus Velox</strong>
+                <div class=" py-3">
+                    <a href="{% url 'mantenimiento:factura_new' %}" class="btn btn-primary"><i
+                            class="fas fa-plus-circle"></i> Agrerar</a>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Registro De Personal
+            </div>
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead>
+                    <tr>
+                        <th scope="col">Nº Factura</th>
+                        <th scope="col">Proveedor</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">T/C</th>
+                        <th scope="col">Cambio</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Accion</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th scope="col">Nº Factura</th>
+                        <th scope="col">Proveedor</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">T/C</th>
+                        <th scope="col">Cambio</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Accion</th>
+                    </tr>
+                    </tfoot>
+                    <tbody>
+                    {% for factura in factura_list %}
+                        <tr>
+                            <td>{{ factura.numFac }}</td>
+                            <td>{{ factura.proveedor }}</td>
+                            {% if factura.moneda == 'DOLARES' %}
+                                <td>${{ factura.total }}</td>
+                            {% else %}
+                                <td>C${{ factura.total }}</td>
+                            {% endif %}
+                            <td>{{ factura.tipoCambio }}</td>
+                            {% if factura.moneda == 'DOLARES' %}
+                                    <td>C${{ factura.TotalDolar }}</td>
+                                {% else %}
+                                    <td>${{ factura.TotalDolar }}</td>
+                                {% endif %}
+                            <td>{{ factura.fecha }}</td>
+                            <td class="col-lg-2 col-md-2">
+                                <a href="{% url 'mantenimiento:factura_update' factura.numFac %}"
+                                   class="btn btn-success btn-circle btn-sm">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a href="{% url 'mantenimiento:factura_delete' factura.numFac %}"
+                                   class="btn btn-danger btn-circle btn-sm">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                                <a href="{% url 'mantenimiento:factura_detail' factura.numFac %}"
+                                   class="btn btn-primary btn-circle btn-sm">
+                                    <i class="fas fa-info-circle"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    {% else %}
+        <h1 class="mt-4">Registro De Factura</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="{% url 'mantenimiento:mantenimiento_list' %}">Mantenimiento</a></li>
+            <li class="breadcrumb-item active">Factura</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-body">
+                Agregar un nuevo registro al sistema de suministro <strong>Passus Velox</strong>
+                <div class=" py-3">
+                    <a href="{% url 'mantenimiento:factura_new' %}" class="btn btn-primary"><i
+                            class="fas fa-plus-circle"></i> Agrerar</a>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

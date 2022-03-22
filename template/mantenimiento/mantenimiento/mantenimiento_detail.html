@@ -1,0 +1,48 @@
+{% extends 'index.html' %}
+{% block pageContent %}
+    {% if form.errors %}
+        <div class="alert alert-danger m-4" role="alert">
+            Verifique los valores <strong> - intente de nuevo!</strong>
+        </div>
+    {% endif %}
+    <ol class="breadcrumb mb-4 m-lg-3">
+            <li class="breadcrumb-item"><a href="{% url 'mantenimiento:mantenimiento_list' %}">Mantenimiento</a></li>
+            <li class="breadcrumb-item active">Registro</li>
+        </ol>
+    <div class="card shadow-lg border-0 rounded-lg mt-5 mx-4">
+        <div class="card-header">
+            <strong>Registro De Mantenimiento</strong> // {{ mantenimiento.fecha }}
+        </div>
+
+        <div class="card-body">
+            <form method="post">{% csrf_token %}
+                <div class="row">
+                    <div class="col border-bottom m-lg-3">
+                        <label for=""><b>Mantenimiento:</b> {{ mantenimiento.mant }}</label>
+                    </div>
+                    <div class="col border-bottom m-lg-3">
+                        <label for=""><b>Empresa:</b> {{ mantenimiento.empresa }}</label>
+                    </div>
+                    <div class="col border-bottom m-lg-3">
+                        <label for=""><b>Autorizado: </b> {{ mantenimiento.autorizado }}</label>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col border-bottom m-lg-3">
+                        <label for=""><b>Realizado: </b> {{ mantenimiento.realizado }}</label>
+                    </div>
+                    <div class="col border-bottom m-lg-3">
+                        <label for=""><b>factura:</b> {% for factura in mantenimiento.factura.all %}
+                            {{ factura }},{% empty %} No hay factura relacionada
+                            {% endfor %}</label>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col border-bottom m-lg-3">
+                        <label for=""><b>Comentario:</b> {{ mantenimiento.comentario  }}</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock pageContent %}

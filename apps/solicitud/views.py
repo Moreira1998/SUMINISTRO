@@ -50,9 +50,7 @@ class SolicitudNew(CreateView):
 class DespacharSolicitud(RedirectView):
     """ Despacha una solicitud restando la cantidad al
     stock del producto.
-
     la vista redirige a la lista de productos """
-
     url = reverse_lazy('solicitud:solicitud_list')
 
     def get(self, request, *args, **kwargs):
@@ -126,7 +124,7 @@ class ReporteExcelSolicitud(TemplateView):
                 ws.cell(row=cont, column=2).border = border
                 ws.cell(row=cont, column=2).fill = fill
 
-                ws.cell(row=cont, column=3).value = solicitudes.area.nombre
+                ws.cell(row=cont, column=3).value = solicitudes.area
                 ws.cell(row=cont, column=3).border = border
 
                 ws.cell(row=cont, column=4).value = solicitudes.cantidad
@@ -146,7 +144,7 @@ class ReporteExcelSolicitud(TemplateView):
                 ws.cell(row=cont, column=2).value = solicitudes.producto.nombre
                 ws.cell(row=cont, column=2).border = border
 
-                ws.cell(row=cont, column=3).value = solicitudes.area.nombre
+                ws.cell(row=cont, column=3).value = solicitudes.area
                 ws.cell(row=cont, column=3).border = border
 
                 ws.cell(row=cont, column=4).value = solicitudes.cantidad
@@ -222,11 +220,11 @@ class ReporteExcelAprobados(TemplateView):
         cont = 10
 
         for solicitudes in solicitud:
-            if solicitudes.status == False:
+            if solicitudes.status == True:
                 ws.cell(row=cont, column=2).value = solicitudes.producto.nombre
                 ws.cell(row=cont, column=2).border = border
 
-                ws.cell(row=cont, column=3).value = solicitudes.area.nombre
+                ws.cell(row=cont, column=3).value = solicitudes.area
                 ws.cell(row=cont, column=3).border = border
 
                 ws.cell(row=cont, column=4).value = solicitudes.cantidad
@@ -246,22 +244,6 @@ class ReporteExcelAprobados(TemplateView):
         response['Content-Disposition'] = content
         wb.save(response)
         return response
-
-
-class ReporteFiltrar(ListView):
-    model = Solicitud
-    template_name = 'solicitud/estado/reporte_list.html'
-    context_object_name = 'reporte_list'
-
-    def get_queryset(self):
-
-        fecha_1 = self.request.GET.get('Fecha1', '')
-        fecha_2 = self.request.GET.get('Fecha2', '')
-
-        if fecha_1 and fecha_2:
-            return Solicitud.objects.filter(fecha__range=(fecha_1, fecha_2))
-        else:
-            return Solicitud.objects.all()
 
 
 class ReporteExcelProductos(TemplateView):

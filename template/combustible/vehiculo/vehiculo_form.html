@@ -1,0 +1,52 @@
+{% extends 'index.html' %}
+{% block pageContent %}
+    {% if form.errors %}
+        <div class="alert alert-danger m-4" role="alert">
+            Verifique los valores <strong> - intente de nuevo!</strong>
+        </div>
+    {% endif %}
+    <div class="card shadow-lg border-0 rounded-lg mt-5 mx-4">
+        <div class="card-header">
+            <strong>Registro De Vehiculo</strong>
+        </div>
+        <div class="card-body">
+            <form method="post">{% csrf_token %}
+                <div class="row">
+                    <div class="row">
+                        <div class="col">
+                            <label for="#">{{ form.placa.label }}</label>
+                            {{ form.placa }}
+                        </div>
+                        <div class="col">
+                            <label for="#">{{ form.vehiculo.label }}</label>
+                            {{ form.vehiculo }}
+                        </div>
+                        <div class="col">
+                            <label for="#">{{ form.rendimiento.label }}</label>
+                            {{ form.rendimiento }}
+                        </div>
+                        <div class="col">
+                            <label for="#">{{ form.combustible.label }}</label>
+                            {{ form.combustible }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="#">{{ form.asignar.label }}</label>
+                            {{ form.asignar }}
+                        </div>
+                        <div class="col">
+                            <label for="#">{{ form.modelo.label }}</label>
+                            {{ form.modelo }}
+                        </div>
+                    </div>
+                    <div class=" py-3">
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Guardar</button>
+                        <a href="{% url 'combustible:vehiculo_list' %}" class="btn btn-secondary">
+                            <i class="fas fa-trash-alt"></i> Cancelar</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock pageContent %}

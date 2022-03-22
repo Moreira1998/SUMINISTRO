@@ -13,6 +13,8 @@
     <link href="{% static 'css/styles.css' %} " rel="stylesheet"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
             crossorigin="anonymous"></script>
+    <!-- JQUERY -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 <body class="sb-nav-fixed">
 {% block pageWrapper %}
@@ -33,9 +35,11 @@
                    aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
-                    <li class="dropdown-item"><strong><i class="fas fa-user-circle"></i> {{ user.get_username }}</strong></li>
+                    <li class="dropdown-item"><strong><i class="fas fa-user-circle"></i> {{ user.get_username }}
+                    </strong></li>
                     <hr class="dropdown-divider"/>
-                    <li><a class="dropdown-item" href="{% url 'logout' %}">Salir __<i class="fas fa-running"></i>__</a></li>
+                    <li><a class="dropdown-item" href="{% url 'logout' %}">Salir __<i class="fas fa-running"></i>__</a>
+                    </li>
                 </ul>
             </li>
         </ul>
@@ -45,49 +49,88 @@
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
-                        <div class="sb-sidenav-menu-heading">Inicio</div>
-                        <a class="nav-link" href="{% url 'inicio' %}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-home"></i></div>
-                            Dashboard
+                        <div class="sb-sidenav-menu-heading">Controles</div>
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages"
+                           aria-expanded="false" aria-controls="collapsePages">
+                            <div class="sb-nav-link-icon"><i class="fas fa-boxes"></i></div>
+                            Suministro
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
-                        <div class="sb-sidenav-menu-heading">panel de registro</div>
-                        {% if perms.personal.view_persona %}
-                            <a class="nav-link" href="{% url 'personal:personal_list' %}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
-                                Usuario
-                            </a>
-                        {% endif %}
+                        <div class="collapse" id="collapsePages" aria-labelledby="headingTwo"
+                             data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne"
+                                     data-bs-parent="#sidenavAccordionPages">
+                                </div>
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                                   data-bs-target="#pagesCollapseError" aria-expanded="false"
+                                   aria-controls="pagesCollapseError">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-arrow-alt-circle-right"></i></div>
+                                    Admin
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne"
+                                     data-bs-parent="#sidenavAccordionPages">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" href="{% url 'producto:factura_pendiente' %}">
+                                            Facturas
+                                        </a><a class="nav-link" href="{% url 'solicitud:solicitud_list' %}">
+                                        Solicitudes
+                                    </a>
+                                    </nav>
+                                </div>
+                                {% if perms.solicitud.view_solicitud %}
+                                    <a class="nav-link" href="{% url 'solicitud:estadoSolicitud_list' %}">
+                                        <div class="sb-nav-link-icon"><i class="fas fa-arrow-alt-circle-right"></i>
+                                        </div>
+                                        Solicitar Insumo
+                                    </a>
+                                {% endif %}
+                                {% if perms.producto.view_producto %}
+                                    <a class="nav-link" href="{% url 'producto:producto_list' %}">
+                                        <div class="sb-nav-link-icon"><i class="fas fa-arrow-alt-circle-right"></i>
+                                        </div>
+                                        Agregar Insumo
+                                    </a>
+                                {% endif %}
+                            </nav>
+                        </div>
                         {% if perms.solicitud.view_solicitud %}
-                            <a class="nav-link" href="{% url 'solicitud:estadoSolicitud_list' %}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-shipping-fast"></i></div>
-                                Solicitar
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                               data-bs-target="#pagesCollapseCombustible" aria-expanded="false"
+                               aria-controls="pagesCollapseCombustible">
+                                <div class="sb-nav-link-icon"><i class="fas fa-gas-pump"></i></div>
+                                Combustible
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
+                            <div class="collapse" id="pagesCollapseCombustible" aria-labelledby="headingOne"
+                                 data-bs-parent="#sidenavAccordionPages">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="{% url 'combustible:vehiculo_list' %}">
+                                        <div class="sb-nav-link-icon"><i class="fas fa-arrow-alt-circle-right"></i>
+                                        </div>
+                                        Registro Vehiculo
+                                    </a>
+                                    <a class="nav-link" href="{% url 'combustible:consumo_list' %}">
+                                        <div class="sb-nav-link-icon"><i class="fas fa-arrow-alt-circle-right"></i>
+                                        </div>
+                                        Registro Consumo
+                                    </a>
+                                </nav>
+                            </div>
                         {% endif %}
 
-                        {% if perms.solicitudchange_solicitud %}
-                            <a class="nav-link" href="{% url 'solicitud:solicitud_list' %}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tasks"></i></div>
-                                Estado solicitud
-                            </a>
-                        {% endif %}
-                        {% if perms.producto.view_producto %}
-                            <a class="nav-link" href="{% url 'producto:producto_list' %}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-boxes"></i></div>
-                                Registro suministro
-                            </a>
-                        {% endif %}
-                        {% if perms.producto.view_producto %}
-                            <a class="nav-link" href="{% url 'solicitud:filtrar_reporte' %}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Reporte
+                        {% if perms.solicitud.view_solicitud %}
+                            <a class="nav-link" href="{% url 'mantenimiento:mantenimiento_list' %}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tools"></i></div>
+                                Mantenimiento
                             </a>
                         {% endif %}
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">
-                    <h1><i class="fab fa-fedex"></i></h1>
-                    <div class="small">Desarrollado por:</div>
-                    Noel Moreira
+                    <p>Desarollado por:</p>
+                    <h6><i class="fas fa-laptop-code"></i> Noel Moreira</h6>
                 </div>
             </nav>
         </div>

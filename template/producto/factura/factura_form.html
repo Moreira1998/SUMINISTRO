@@ -1,0 +1,104 @@
+{% extends 'index.html' %}
+{% block pageContent %}
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
+    {% if form.errors %}
+        <div class="alert alert-danger m-4" role="alert">
+            Verifique los valores <strong> - intente de nuevo!</strong>
+        </div>
+    {% endif %}
+    <div class="card shadow-lg border-0 rounded-lg mt-5 mx-4">
+        <div class="card-header">
+            <strong>Registro De Factura</strong>
+        </div>
+        <div class="card-body">
+            <form method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col">
+                        <label for="#">{{ form.numFac.label }}</label>
+                        {{ form.numFac }}
+                    </div>
+                    <div class="col">
+                        <label for="#">{{ form.proveedor.label }}</label>
+                        {{ form.proveedor }}
+                    </div>
+                    <div class="col">
+                        <label for="#">{{ form.moneda.label }}</label>
+                        {{ form.moneda }}
+                    </div>
+                    <div class="col">
+                        <label for="#">{{ form.formaPago.label }}</label>
+                        {{ form.formaPago }}
+                    </div>
+                    <div class="col">
+                        <label for="#">{{ form.tipoCambio.label }}</label>
+                        {{ form.tipoCambio }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="#">{{ form.iva.label }}</label>
+                        {{ form.iva }}
+                    </div>
+                    <div class="col">
+                        <label for="#">{{ form.subTotal.label }}</label>
+                        {{ form.subTotal }}
+                    </div>
+                    <div class="col">
+                        <label for="#">{{ form.total.label }}</label>
+                        {{ form.total }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="#">{{ form.producto.label }}</label>
+                        {{ form.producto }}
+                    </div>
+                    <div class="col">
+                        <label for="#">{{ form.cantidad.label }}</label>
+                        {{ form.cantidad }}
+                    </div>
+                    <div class="col">
+                        <label for="#">{{ form.fecha.label }}</label>
+                        {{ form.fecha }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="#">{{ form.detalle.label }}</label>
+                        {{ form.detalle }}
+                    </div>
+                </div>
+                <div class=" py-3">
+                    <button href="" type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Guardar</button>
+                    <a href="{% url 'producto:factura_list' %}" class="btn btn-secondary"><i
+                            class="fas fa-trash-alt"></i> Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+            integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            const selectProveedor = $("#id_proveedor");
+            const selectProducto = $("#id_producto");
+            $(".datepicker").datepicker({
+                dateFormat: "yy-mm-dd"
+            });
+            selectProveedor.select2({
+                placeholder: 'Seleccione el proveedor'
+            });
+            selectProducto.select2({
+                placeholder: 'Seleccione el producto'
+            });
+            $('.select2-container').addClass('w-100');
+        });
+
+    </script>
+{% endblock pageContent %}

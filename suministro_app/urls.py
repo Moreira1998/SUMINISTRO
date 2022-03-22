@@ -26,8 +26,10 @@ urlpatterns = [
     path('logout', logout_then_login, name='logout'),
     path('admin/', admin.site.urls),
     path('home/', login_required(IndexView.as_view()), name='inicio'),
-    path('personal/', include('apps.personal.urls')),
     path('producto/', include('apps.producto.urls')),
     path('solicitud/', include('apps.solicitud.urls')),
+    path('combustible/', include('apps.combustible.urls')),
+    path('mantenimiento/', include('apps.mantenimiento.urls')),
+    path("select2/", include("django_select2.urls")),
 
 ]

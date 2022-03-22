@@ -1,0 +1,142 @@
+{% extends 'index.html' %}
+{% block pageContent %}
+    {% if mantenimiento_list %}
+        <h2 class="mt-3">Registro De Mantenimiento</h2>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="{% url 'inicio' %}">Dashboard</a></li>
+            <li class="breadcrumb-item active">Mantenimiento</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card bg-success text-white mb-4">
+                            <div class="card-body"><i class="fas fa-file-invoice-dollar"></i> Factura</div>
+                            <div class="card-footer d-flex align-items-center justify-content-between">
+                                <a class="small text-white stretched-link" href="{% url 'mantenimiento:factura_list' %}">Acceder</a>
+                                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card bg-danger text-white mb-4">
+                            <div class="card-body"><i class="fas fa-people-carry"></i> Proveedor</div>
+                            <div class="card-footer d-flex align-items-center justify-content-between">
+                                <a class="small text-white stretched-link" href="{% url 'mantenimiento:proveedor_list' %}">Acceder</a>
+                                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                Agregar un nuevo registro al sistema de suministro <strong>Passus Velox</strong>
+                <div class=" py-3">
+                    <a href="{% url 'mantenimiento:mantenimiento_new' %}" class="btn btn-primary"><i
+                            class="fas fa-plus-circle"></i> Agrerar</a>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Registro De Personal
+                 <div class=" py-3">
+                    <a href="{% url 'mantenimiento:mantenimiento_reporte' %}"
+                       class="btn btn-success btn-circle">
+                        <i class="fas fa-file-excel"></i>
+                        Reporte De Mantenimiento
+                    </a>
+                </div>
+            </div>
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead>
+                    <tr>
+                        <th scope="col">Mantenimiento</th>
+                        <th scope="col">Empresa</th>
+                        <th scope="col">Autorizado</th>
+                        <th scope="col">Realizado</th>
+                        <th scope="col">Factura</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Accion</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th scope="col">Mantenimiento</th>
+                        <th scope="col">Empresa</th>
+                        <th scope="col">Autorizado</th>
+                        <th scope="col">Realizado</th>
+                        <th scope="col">Factura</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Accion</th>
+                    </tr>
+                    </tfoot>
+                    <tbody>
+                    {% for mantenimiento in mantenimiento_list %}
+                        <tr>
+                            <td>{{ mantenimiento.mant }}</td>
+                            <td>{{ mantenimiento.empresa }}</td>
+                            <td>{{ mantenimiento.autorizado }}</td>
+                            <td>{{ mantenimiento.realizado }}</td>
+                            <td> {% for factura in mantenimiento.factura.all %}
+                                {{ factura }},{% empty %} No hay factura relacionada
+                            {% endfor %}
+                            </td>
+                            <td>{{ mantenimiento.fecha }}</td>
+                            <td class="col-lg-2 col-md-2">
+                                <a href="{% url 'mantenimiento:mantenimiento_update' mantenimiento.id %}"
+                                   class="btn btn-success btn-circle btn-sm">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a href="{% url 'mantenimiento:mantenimiento_delete' mantenimiento.id %}"
+                                   class="btn btn-danger btn-circle btn-sm">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                                <a href="{% url 'mantenimiento:mantenimiento_detail' mantenimiento.id %}"
+                                   class="btn btn-primary btn-circle btn-sm">
+                                    <i class="fas fa-info-circle"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    {% else %}
+        <h1 class="mt-4">Registro De Mantenimiento</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="{% url 'inicio' %}">Dashboard</a></li>
+            <li class="breadcrumb-item active">Mantenimiento</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card bg-success text-white mb-4">
+                            <div class="card-body"><i class="fas fa-file-invoice-dollar"></i> Factura</div>
+                            <div class="card-footer d-flex align-items-center justify-content-between">
+                                <a class="small text-white stretched-link" href="{% url 'mantenimiento:factura_list' %}">Acceder</a>
+                                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card bg-danger text-white mb-4">
+                            <div class="card-body"><i class="fas fa-people-carry"></i> Proveedor</div>
+                            <div class="card-footer d-flex align-items-center justify-content-between">
+                                <a class="small text-white stretched-link" href="{% url 'mantenimiento:proveedor_list' %}">Acceder</a>
+                                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                Agregar un nuevo registro al sistema de suministro <strong>Passus Velox</strong>
+                <div class=" py-3">
+                    <a href="{% url 'mantenimiento:mantenimiento_new' %}" class="btn btn-primary"><i
+                            class="fas fa-plus-circle"></i> Agrerar</a>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

@@ -1,6 +1,6 @@
 from apps.personal.models import Personal
 from apps.personal.forms import PersonalForm
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
 from django.urls import reverse_lazy
 
 
@@ -19,6 +19,12 @@ class PersonalNew(CreateView):
     form_class = PersonalForm
     template_name = 'personal/personal_form.html'
     success_url = reverse_lazy('personal:personal_list')
+
+
+class PersonalDetail(DetailView):
+    model = Personal
+    template_name = 'personal/personal_detail.html'
+    queryset = Personal.objects.all()
 
 
 class PersonalUpdate(UpdateView):

@@ -1,0 +1,49 @@
+{% extends 'index.html' %}
+{% block pageContent %}
+    {% if form.errors %}
+        <div class="alert alert-danger m-4" role="alert">
+            Verifique los valores <strong> - intente de nuevo!</strong>
+        </div>
+    {% endif %}
+    <ol class="breadcrumb mb-4 m-lg-3">
+            <li class="breadcrumb-item"><a href="{% url 'producto:proveedor_list' %}">Proveedor</a></li>
+            <li class="breadcrumb-item active">Registro</li>
+        </ol>
+    <div class="card shadow-lg border-0 rounded-lg mt-5 mx-4">
+        <div class="card-header">
+            <strong>Registro De Proveedor</strong>
+        </div>
+
+        <div class="card-body">
+            <form method="post">{% csrf_token %}
+                <div class="row">
+                    <div class="col border-bottom m-lg-3">
+                        <label for=""><b>Nombre: </b> {{ proveedor.nombre }}</label>
+                    </div>
+                    <div class="col border-bottom m-lg-3">
+                        {% if not proveedor.ruc %}
+                            <label for="">No hay RUC relacionado </label>
+                            {% else %}
+                                <label for=""><b>RUC: </b> {{ proveedor.ruc }}</label>
+                            {% endif %}
+                    </div>
+                    <div class="col border-bottom m-lg-3">
+                        <label for=""><b>Vendedor: </b> {{ proveedor.vendedor }}</label>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col border-bottom m-lg-3">
+                        <label for=""><b>Telefono: </b> {{ proveedor.telefono }}</label>
+                    </div>
+                    <div class="col border-bottom m-lg-3">
+                        <label for=""><b>dirreccion: </b> {{ proveedor.dirreccion }}</label>
+                    </div>
+                    <div class="col border-bottom m-lg-3">
+                        <label for=""><b>Forma de pago: </b> {{ proveedor.formaPago }}</label>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+{% endblock pageContent %}
