@@ -97,7 +97,7 @@ WSGI_APPLICATION = 'suministro_app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'db-postgresql-nyc1-84169',
+        'NAME': 'defaultdb',
         'USER': 'doadmin',
         'PASSWORD': 'AVNS_WaGCIhpe1G58ouTBgRZ',
         'HOST': 'db-postgresql-nyc1-84169-do-user-8181301-0.b.db.ondigitalocean.com',
