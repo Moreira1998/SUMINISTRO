@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-r0hjif!+z1$_t$$bpk%m+n%c0t8nx#mk9#_$klxcv%_&&@0l)1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', '.herokuapp.com', 'suministro.herokuapp.com']
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'walrus-app-cqwz5.ondigitalocean.app']
 
 
 # Application definition
@@ -99,7 +99,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'db_suministro',
         'USER': 'postgres',
-        'PASSWORD': 'Fedex@2021',
+        'PASSWORD': '141115',
         'HOST': 'localhost',
         'PORT': '5432',
     }
