@@ -116,7 +116,7 @@ class FacturaForm(forms.ModelForm):
             'total': forms.TextInput(attrs={'class': 'form-control'}),
             'tipoCambio': forms.TextInput(attrs={'class': 'form-control'}),
             'formaPago': forms.Select(attrs={'class': 'form-control'}),
-            'detalle': forms.Textarea(attrs={'class': 'form-control'}),
+            'detalle': forms.Textarea(attrs={'class': 'form-control mb-4' , 'style':'height:80px'}),
             'fecha': forms.TextInput(attrs={'class': 'form-control datepicker', 'autocomplete': 'off'}),
             'proveedor': forms.Select(attrs={'class': 'w-100 form-control js-example-basic-single'}),
             'producto': forms.Select(attrs={'class': 'w-100 form-control js-example-basic-single'}),

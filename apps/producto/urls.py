@@ -52,7 +52,6 @@ urlpatterns = [
     path('facturaUpdate/<str:pk>', login_required(FacturaUpdate.as_view()), name='factura_update'),
     path('facturaDelete/<str:pk>', login_required(FacturaDelete.as_view()), name='factura_delete'),
     path('facturaPendiente', login_required(FacturaPendienteList.as_view()), name='factura_pendiente'),
-    path('despachar/<int:pk>', login_required(DespacharPoducto.as_view()), name='factura_stock'),
-
+    path('despachar/<str:pk>', login_required(DespacharPoducto.as_view()), name='factura_stock'),
 
 ]
