@@ -1,5 +1,5 @@
-from apps.producto.forms import ProductoForm, MarcaForm, CategoriaForm, ProveedorForm, FacturaForm
-from apps.producto.models import Producto, Marca, Categoria, Proveedor, Factura
+from apps.producto.forms import ProductoForm, MarcaForm, CategoriaForm, ProveedorForm, FacturaForm, DetalleFacturaForm
+from apps.producto.models import Producto, Marca, Categoria, Proveedor, Factura, DetalleFactura
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, RedirectView, DetailView, TemplateView
 from django.urls import reverse_lazy
 
@@ -155,7 +155,7 @@ class FacturaNew(CreateView):
     model = Factura
     form_class = FacturaForm
     template_name = 'producto/factura/factura_form.html'
-    success_url = reverse_lazy('producto:factura_list')
+    success_url = reverse_lazy('producto:DetalleFactura_new')
 
 
 class FacturaDetail(DetailView):
@@ -177,6 +177,15 @@ class FacturaDelete(DeleteView):
     template_name = 'producto/factura/factura_delete.html'
     success_url = reverse_lazy('producto:factura_list')
 
+
+# ------------------------------------------------------------------------------------>
+# view DetalleFactura
+
+class DetalleFacturaNew(CreateView):
+    model = DetalleFactura
+    form_class = DetalleFacturaForm
+    template_name = 'producto/factura/detalleFactura/detalleFactura.html'
+    success_url = reverse_lazy('producto:factura_list')
 
 class FacturaPendienteList(ListView):
     model = Factura

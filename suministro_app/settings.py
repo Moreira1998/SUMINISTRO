@@ -97,11 +97,11 @@ WSGI_APPLICATION = 'suministro_app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'defaultdb',
-        'USER': 'doadmin',
-        'PASSWORD': 'AVNS_WaGCIhpe1G58ouTBgRZ',
-        'HOST': 'db-postgresql-nyc1-84169-do-user-8181301-0.b.db.ondigitalocean.com',
-        'PORT': '25060',
+        'NAME': 'db_suministro',
+        'USER': 'postgres',
+        'PASSWORD': '141115',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 

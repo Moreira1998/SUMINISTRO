@@ -3,7 +3,7 @@ from django.urls import path
 from apps.producto.views import ProductoList, ProductoNew, ProductoUpdate, ProductoDelete, MarcaList, MarcaNew, \
     MarcaUpdate, MarcaDelete, CategoriaList, CategoriaNew, CategoriaUpdate, CategoriaDelete, ProveedorList, \
     ProveedorDetail, ProveedorNew, FacturaList, FacturaNew, DespacharPoducto, ProveedorDelete, ProveedorUpdate, \
-    FacturaUpdate, FacturaDetail, FacturaDelete, ProductoDetail, FacturaPendienteList
+    FacturaUpdate, FacturaDetail, FacturaDelete, ProductoDetail, FacturaPendienteList, DetalleFacturaNew
 
 app_name = 'producto'
 
@@ -53,5 +53,11 @@ urlpatterns = [
     path('facturaDelete/<str:pk>', login_required(FacturaDelete.as_view()), name='factura_delete'),
     path('facturaPendiente', login_required(FacturaPendienteList.as_view()), name='factura_pendiente'),
     path('despachar/<str:pk>', login_required(DespacharPoducto.as_view()), name='factura_stock'),
+
+    # -------------------------------------------------------->
+        # Path Factura
+
+    path('detallefacturaNew', login_required(DetalleFacturaNew.as_view()), name='DetalleFactura_new'),
+
 
 ]

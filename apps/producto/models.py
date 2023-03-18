@@ -99,9 +99,6 @@ class Factura(models.Model):
     tipoCambio = models.FloatField()
     formaPago = models.CharField(max_length=100, null=True, choices=FORMA_PAGO_FAC)
     detalle = models.CharField(max_length=100, null=True)
-    producto = models.ForeignKey(Producto, on_delete=models.CASCADE, null=True)
-    cantidad = models.IntegerField()
-    status = models.BooleanField(default=True)
     fecha = models.DateField()
 
     class Meta:
@@ -120,3 +117,18 @@ class Factura(models.Model):
     def __str__(self):
         return str(self.numFac)
 
+
+# ------------------------------------------------------------------------------------->
+# Model Factura
+
+class DetalleFactura(models.Model):
+    numFac = models.CharField(max_length=30)
+    producto = models.ForeignKey(Producto, on_delete=models.CASCADE, null=True)
+    cantidad = models.IntegerField()
+    precio = models.FloatField()
+
+    class Meta:
+        verbose_name = 'DetalleFactura'
+        verbose_name_plural = 'DetalleFactura'
+    def __str__(self):
+        return str(self.numFac)

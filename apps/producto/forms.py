@@ -1,5 +1,5 @@
 from django import forms
-from apps.producto.models import Marca, Categoria, Producto, Proveedor, Factura
+from apps.producto.models import Marca, Categoria, Producto, Proveedor, Factura, DetalleFactura
 
 
 # -------------------------------------------------------->
@@ -103,8 +103,6 @@ class FacturaForm(forms.ModelForm):
             'tipoCambio': 'Tipo De Cambio',
             'formaPago': 'Forma De Pago',
             'detalle': 'Detalle factura',
-            'producto': 'Producto',
-            'cantidad': 'Cantidad',
             'fecha': 'Fecha Facturacion',
 
         }
@@ -119,6 +117,25 @@ class FacturaForm(forms.ModelForm):
             'detalle': forms.Textarea(attrs={'class': 'form-control mb-4' , 'style':'height:80px'}),
             'fecha': forms.TextInput(attrs={'class': 'form-control datepicker', 'autocomplete': 'off'}),
             'proveedor': forms.Select(attrs={'class': 'w-100 form-control js-example-basic-single'}),
-            'producto': forms.Select(attrs={'class': 'w-100 form-control js-example-basic-single'}),
-            'cantidad': forms.TextInput(attrs={'class': 'form-control'}),
+        }
+
+# -------------------------------------------------------->
+# Forms producto
+
+class DetalleFacturaForm(forms.ModelForm):
+    class Meta:
+        model = DetalleFactura
+        fields = '__all__'
+        labels = {
+            'codigoProducto': 'Codigo producto',
+            'numFac': 'Numero de factura',
+            'producto': 'Producto',
+            'cantidad': 'Cantidad',
+            'precio': 'Precio',
+        }
+        widgets = {
+            'numFac': forms.TextInput(attrs={'class': 'form-control'}),
+            'producto': forms.Select(attrs={'class': 'form-control'}),
+            'cantidad': forms.NumberInput(attrs={'class': 'form-control'}),
+            'precio': forms.NumberInput(attrs={'class': 'form-control'}),
         }
