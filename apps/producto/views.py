@@ -181,11 +181,33 @@ class FacturaDelete(DeleteView):
 # ------------------------------------------------------------------------------------>
 # view DetalleFactura
 
+class DetalleFacturaList(ListView):
+    model = Factura
+    template_name = 'producto/factura/detalleFactura/detalleFactura_list.html'
+    context_object_name = 'detalleFactura_list'
+    queryset = DetalleFactura.objects.all()
+
 class DetalleFacturaNew(CreateView):
     model = DetalleFactura
     form_class = DetalleFacturaForm
-    template_name = 'producto/factura/detalleFactura/detalleFactura.html'
-    success_url = reverse_lazy('producto:factura_list')
+    template_name = 'producto/factura/detalleFactura/detalleFactura_form.html'
+    success_url = reverse_lazy('producto:detalleFactura_list')
+
+
+class DetalleFacturaUpdate(UpdateView):
+    model = DetalleFactura
+    form_class = DetalleFacturaForm
+    template_name = 'producto/factura/detalleFactura/detalleFactura_form.html'
+    success_url = reverse_lazy('producto:detalleFactura_list')
+
+class DetalleFacturaDelete(DeleteView):
+    model = DetalleFactura
+    form_class = DetalleFacturaForm
+    template_name = 'producto/factura/detalleFactura/detalleFactura_delete.html'
+    success_url = reverse_lazy('producto:detalleFactura_list')
+
+# ------------------------------------------------------------------------------------>
+# view Factura Pendiente
 
 class FacturaPendienteList(ListView):
     model = Factura
@@ -193,6 +215,9 @@ class FacturaPendienteList(ListView):
     context_object_name = 'factura_list'
     queryset = Factura.objects.all()
 
+
+# ------------------------------------------------------------------------------------>
+# view Despacho
 
 class DespacharPoducto(RedirectView):
     """ Despacha una factura sumando la cantidad al
