@@ -17,7 +17,7 @@
             <form method="post">{% csrf_token %}
                 <div class="row">
                     <div class="col border-bottom m-lg-3">
-                        <label for=""><b>Vehiculo: </b> {{ consumo.vehiculo }}</label>
+                        <label for=""><b>Vehículo: </b> {{ consumo.vehiculo }}</label>
                     </div>
                     <div class="col border-bottom m-lg-3">
                         <label for=""><b>Factura: </b> {{ consumo.factura }}</label>
@@ -28,18 +28,18 @@
                 </div>
                 <div class="row mt-4">
                     <div class="col border-bottom m-lg-3">
-                        <label for=""><b>Km Inicio: </b> {{ consumo.km_inicio }}</label>
+                        <label for=""><b>Km inicial: </b> {{ consumo.km_inicio }}</label>
                     </div>
                     <div class="col border-bottom m-lg-3">
-                        <label for=""><b>Km Final:</b> {{ consumo.km_fin }}</label>
+                        <label for=""><b>Km final:</b> {{ consumo.km_fin }}</label>
                     </div>
                     <div class="col border-bottom m-lg-3">
-                        <label for=""><b>Km Recorrido:</b> {{ consumo.RestaKM }}</label>
+                        <label for=""><b>Km recorrido:</b> {{ consumo.RestaKM }}</label>
                     </div>
                 </div>
                 <div class="row mt-4">
                     <div class="col border-bottom m-lg-3">
-                        <label for=""><b>Rendimiento Esperado: </b> {{ consumo.vehiculo.rendimiento }} KPL</label>
+                        <label for=""><b>Rendimiento esperado: </b> {{ consumo.vehiculo.rendimiento }} KPL</label>
                     </div>
                     <div class="col border-bottom m-lg-3">
                         {% if  consumo.Rendimiento < consumo.vehiculo.rendimiento %}

@@ -11,8 +11,8 @@ class VehiculoForm(forms.ModelForm):
         model = Vehiculo
         fields = '__all__'
         labels = {
-            'placa': '# Placa',
-            'vehiculo': 'Vehiculo',
+            'placa': 'Número de placa',
+            'vehiculo': 'Vehículo',
             'combustible': 'Combustible',
             'asignar': 'Asignado a',
             'modelo': 'Modelo',
@@ -24,7 +24,7 @@ class VehiculoForm(forms.ModelForm):
             'combustible': forms.Select(attrs={'class': 'form-control'}),
             'asignar': forms.TextInput(attrs={'class': 'form-control'}),
             'modelo': forms.TextInput(attrs={'class': 'form-control'}),
-            'rendimiento': forms.TextInput(attrs={'class': 'form-control'}),
+            'rendimiento': forms.NumberInput(attrs={'class': 'form-control'}),
         }
 
 
@@ -37,21 +37,21 @@ class ConsumoForm(forms.ModelForm):
         model = Consumo
         fields = '__all__'
         labels = {
-            'vehiculo': 'Seleccione el vehiculo',
-            'factura': 'Numero de factura',
+            'vehiculo': 'Seleccione el vehículo',
+            'factura': 'Número de factura',
             'monto': 'Monto facturado',
             'litros': 'Litros',
-            'km_inicio': 'Km inicio',
+            'km_inicio': 'Km inicial',
             'km_fin': 'Km final',
             'fecha': 'Fecha',
         }
         widgets = {
             'vehiculo': forms.Select(attrs={'class': 'w-100 form-control js-example-basic-single'}),
-            'litros': forms.TextInput(attrs={'class': 'form-control'}),
-            'monto': forms.TextInput(attrs={'class': 'form-control'}),
+            'litros': forms.NumberInput(attrs={'class': 'form-control'}),
+            'monto': forms.NumberInput(attrs={'class': 'form-control'}),
             'factura': forms.TextInput(attrs={'class': 'form-control'}),
-            'km_inicio': forms.TextInput(attrs={'class': 'form-control'}),
-            'km_fin': forms.TextInput(attrs={'class': 'form-control'}),
+            'km_inicio': forms.NumberInput(attrs={'class': 'form-control'}),
+            'km_fin': forms.NumberInput(attrs={'class': 'form-control'}),
             'fecha': forms.DateInput(attrs={'class': 'form-control datepicker', 'autocomplete': 'off'}),
         }
 

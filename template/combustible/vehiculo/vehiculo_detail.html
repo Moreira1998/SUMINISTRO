@@ -6,12 +6,12 @@
         </div>
     {% endif %}
     <ol class="breadcrumb mb-4 m-lg-3">
-            <li class="breadcrumb-item"><a href="{% url 'combustible:vehiculo_list' %}">Vehiculos</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'combustible:vehiculo_list' %}">Vehículos</a></li>
             <li class="breadcrumb-item active">Registro</li>
         </ol>
     <div class="card shadow-lg border-0 rounded-lg mt-5 mx-4">
         <div class="card-header">
-            <strong>Registro De Vehiculo</strong> // {{ consumo.fecha }}
+            <strong>Registro De Vehículo</strong> // {{ consumo.fecha }}
         </div>
 
         <div class="card-body">
@@ -21,7 +21,7 @@
                         <label for=""><b>Placa:</b> {{ vehiculo.placa }}</label>
                     </div>
                     <div class="col border-bottom m-lg-3">
-                        <label for=""><b>Vehiculo:</b> {{ vehiculo.vehiculo }}</label>
+                        <label for=""><b>Vehículo:</b> {{ vehiculo.vehiculo }}</label>
                     </div>
                     <div class="col border-bottom m-lg-3">
                         <label for=""><b>Rendimiento:</b> {{ vehiculo.rendimiento }}</label>

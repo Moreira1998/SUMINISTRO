@@ -11,7 +11,7 @@ class MarcaForm(forms.ModelForm):
         fields = '__all__'
         labels = {
             'nombre': 'Nombre',
-            'descripcion': 'Descripcion',
+            'descripcion': 'Descripción',
         }
         widgets = {
             'nombre': forms.TextInput(attrs={'class': 'form-control'}),
@@ -28,7 +28,7 @@ class CategoriaForm(forms.ModelForm):
         fields = '__all__'
         labels = {
             'nombre': 'Nombre',
-            'descripcion': 'Descripcion',
+            'descripcion': 'Descripción',
         }
         widgets = {
             'nombre': forms.TextInput(attrs={'class': 'form-control'}),
@@ -44,9 +44,9 @@ class ProductoForm(forms.ModelForm):
         model = Producto
         fields = '__all__'
         labels = {
-            'id': 'Id producto',
+            'id': 'Id insumo',
             'nombre': 'Nombre',
-            'categoria': 'Categoria',
+            'categoria': 'Categoría',
             'marca': 'Marca',
             'cantidad': 'Cantidad',
         }
@@ -55,7 +55,7 @@ class ProductoForm(forms.ModelForm):
             'nombre': forms.TextInput(attrs={'class': 'form-control'}),
             'categoria': forms.Select(attrs={'class': 'form-control'}),
             'marca': forms.Select(attrs={'class': 'form-control'}),
-            'cantidad': forms.TextInput(attrs={'class': 'form-control'}),
+            'cantidad': forms.NumberInput(attrs={'class': 'form-control'}),
         }
 
 
@@ -70,9 +70,9 @@ class ProveedorForm(forms.ModelForm):
         labels = {
             'nombre': 'Nombre',
             'ruc': 'RUC',
-            'telefono': 'Telefono',
+            'telefono': 'Teléfono',
             'vendedor': 'Vendedor',
-            'dirreccion': 'Dirreccion',
+            'dirreccion': 'Dirección',
             'formaPago': 'Forma de pago',
         }
         widgets = {
@@ -81,7 +81,7 @@ class ProveedorForm(forms.ModelForm):
             'vendedor': forms.TextInput(attrs={'class': 'form-control'}),
             'nombre': forms.TextInput(attrs={'class': 'form-control'}),
             'dirreccion': forms.TextInput(attrs={'class': 'form-control'}),
-            'telefono': forms.TextInput(attrs={'class': 'form-control'}),
+            'telefono': forms.NumberInput(attrs={'class': 'form-control'}),
         }
 
 
@@ -94,25 +94,25 @@ class FacturaForm(forms.ModelForm):
         model = Factura
         fields = '__all__'
         labels = {
-            'numFac': 'Numero de factura',
+            'numFac': 'Número de factura',
             'proveedor': 'Proveedor',
             'moneda': 'Tipo de moneda',
             'iva': 'Detalle IVA',
             'subTotal': 'Subtotal',
             'total': 'Total',
-            'tipoCambio': 'Tipo De Cambio',
-            'formaPago': 'Forma De Pago',
+            'tipoCambio': 'Tipo de cambio',
+            'formaPago': 'Forma de pago',
             'detalle': 'Detalle factura',
-            'fecha': 'Fecha Facturacion',
+            'fecha': 'Fecha facturación',
 
         }
         widgets = {
             'numFac': forms.TextInput(attrs={'class': 'form-control'}),
-            'iva': forms.TextInput(attrs={'class': 'form-control'}),
+            'iva': forms.NumberInput(attrs={'class': 'form-control'}),
             'moneda': forms.Select(attrs={'class': 'form-control'}),
-            'subTotal': forms.TextInput(attrs={'class': 'form-control'}),
-            'total': forms.TextInput(attrs={'class': 'form-control'}),
-            'tipoCambio': forms.TextInput(attrs={'class': 'form-control'}),
+            'subTotal': forms.NumberInput(attrs={'class': 'form-control'}),
+            'total': forms.NumberInput(attrs={'class': 'form-control'}),
+            'tipoCambio': forms.NumberInput(attrs={'class': 'form-control'}),
             'formaPago': forms.Select(attrs={'class': 'form-control'}),
             'detalle': forms.Textarea(attrs={'class': 'form-control mb-4' , 'style':'height:80px'}),
             'fecha': forms.TextInput(attrs={'class': 'form-control datepicker', 'autocomplete': 'off'}),
@@ -127,9 +127,9 @@ class DetalleFacturaForm(forms.ModelForm):
         model = DetalleFactura
         fields = '__all__'
         labels = {
-            'codigoProducto': 'Codigo producto',
-            'numFac': 'Numero de factura',
-            'producto': 'Producto',
+            'codigoProducto': 'Código insumo',
+            'numFac': 'Número de factura',
+            'producto': 'Insumo',
             'cantidad': 'Cantidad',
             'precio': 'Precio',
         }

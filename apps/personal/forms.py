@@ -13,7 +13,7 @@ class UserForm(forms.ModelForm):
             'last_name': 'Nombre',
             'first_name': 'Apellido',
             'password': 'Password',
-            'email': 'Correo electronico'
+            'email': 'Correo electrónico'
         }
         widgets = {
             'username': forms.TextInput(attrs={'class': 'form-control'}),
@@ -36,7 +36,7 @@ class PersonalForm(forms.ModelForm):
             'nombre': 'Nombre',
             'usuario': 'Usuario',
             'rol': 'Rol',
-            'area': 'Area',
+            'area': 'Área',
         }
         widgets = {
             'idPersonal': forms.TextInput(attrs={'class': 'form-control'}),
@@ -58,8 +58,8 @@ class RolForm(forms.ModelForm):
             'descripcion',
         )
         labels = {
-            'nombre': 'Nombre Del Rol',
-            'descripcion': 'Descripcion del rol',
+            'nombre': 'Nombre del Rol',
+            'descripcion': 'Descripción del rol',
         }
         widgets = {
             'nombre': forms.TextInput(attrs={'class': 'form-control'}),
@@ -78,6 +78,6 @@ class AreaForm(forms.ModelForm):
             'descripcion',
         )
         labels = {
-            'nombre': 'Nombre Del Rol',
-            'descripcion': 'Descripcion del rol',
+            'nombre': 'Nombre del Rol',
+            'descripcion': 'Descripción del rol',
         }

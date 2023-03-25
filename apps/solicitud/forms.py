@@ -9,14 +9,14 @@ class SolicitudForm(forms.ModelForm):
         model = Solicitud
         fields = '__all__'
         labels = {
-            'producto': 'producto',
+            'producto': 'Insumo',
             'cantidad': 'Cantidad',
             'fecha': 'Fecha',
-            'area': 'Area'
+            'area': 'Área'
         }
         widgets = {
             'producto': forms.RadioSelect(),
-            'cantidad': forms.TextInput(attrs={'class': 'form-control'}),
+            'cantidad': forms.NumberInput(attrs={'class': 'form-control'}),
             'fecha': forms.DateInput(),
             'area': forms.Select(attrs={'class': 'form-control'}),
         }

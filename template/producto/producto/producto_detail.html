@@ -6,12 +6,12 @@
         </div>
     {% endif %}
     <ol class="breadcrumb mb-4 m-lg-3">
-            <li class="breadcrumb-item"><a href="{% url 'producto:producto_list' %}">Producto</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'producto:producto_list' %}">Insumo</a></li>
             <li class="breadcrumb-item active">Registro</li>
         </ol>
     <div class="card shadow-lg border-0 rounded-lg mt-5 mx-4">
         <div class="card-header">
-            <strong>Registro De Producto</strong>
+            <strong>Registro De Insumo</strong>
         </div>
 
         <div class="card-body">
@@ -29,7 +29,7 @@
                 </div>
                 <div class="row mt-4">
                     <div class="col border-bottom m-lg-3">
-                        <label for=""><b>Categoria: </b> {{ producto.categoria }}</label>
+                        <label for=""><b>Categoría: </b> {{ producto.categoria }}</label>
                     </div>
                     <div class="col border-bottom m-lg-3">
                         <label for=""><b>Marca: </b> {{ producto.marca }}</label>
