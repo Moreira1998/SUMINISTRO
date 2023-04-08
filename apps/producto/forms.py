@@ -44,7 +44,7 @@ class ProductoForm(forms.ModelForm):
         model = Producto
         fields = '__all__'
         labels = {
-            'id': 'Id insumo',
+            'id': 'Id suministro',
             'nombre': 'Nombre',
             'categoria': 'Categoría',
             'marca': 'Marca',
@@ -127,14 +127,14 @@ class DetalleFacturaForm(forms.ModelForm):
         model = DetalleFactura
         fields = '__all__'
         labels = {
-            'codigoProducto': 'Código insumo',
+            'codigoProducto': 'Código suministro',
             'numFac': 'Número de factura',
-            'producto': 'Insumo',
+            'producto': 'Suministro',
             'cantidad': 'Cantidad',
             'precio': 'Precio',
         }
         widgets = {
-            'numFac': forms.TextInput(attrs={'class': 'form-control'}),
+            'numFac': forms.Select(attrs={'class': 'form-control'}),
             'producto': forms.Select(attrs={'class': 'form-control'}),
             'cantidad': forms.NumberInput(attrs={'class': 'form-control'}),
             'precio': forms.NumberInput(attrs={'class': 'form-control'}),

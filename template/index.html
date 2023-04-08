@@ -62,13 +62,15 @@
                                 <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne"
                                      data-bs-parent="#sidenavAccordionPages">
                                 </div>
-                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-                                   data-bs-target="#pagesCollapseError" aria-expanded="false"
-                                   aria-controls="pagesCollapseError">
-                                    <div class="sb-nav-link-icon"><i class="fas fa-arrow-alt-circle-right"></i></div>
-                                    Admin
-                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                </a>
+                                {% if perms.admin.view_logentry %}
+                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                                       data-bs-target="#pagesCollapseError" aria-expanded="false"
+                                       aria-controls="pagesCollapseError">
+                                        <div class="sb-nav-link-icon"><i class="fas fa-arrow-alt-circle-right"></i></div>
+                                        Admin
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                {% endif %}
                                 <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne"
                                      data-bs-parent="#sidenavAccordionPages">
                                     <nav class="sb-sidenav-menu-nested nav">
@@ -83,19 +85,18 @@
                                     <a class="nav-link" href="{% url 'solicitud:estadoSolicitud_list' %}">
                                         <div class="sb-nav-link-icon"><i class="fas fa-arrow-alt-circle-right"></i>
                                         </div>
-                                        Solicitar Insumo
+                                        Solicitar Suministro
                                     </a>
                                 {% endif %}
                                 {% if perms.producto.view_producto %}
                                     <a class="nav-link" href="{% url 'producto:producto_list' %}">
                                         <div class="sb-nav-link-icon"><i class="fas fa-arrow-alt-circle-right"></i>
                                         </div>
-                                        Agregar Insumo
+                                        Agregar Suministro
                                     </a>
                                 {% endif %}
                             </nav>
                         </div>
-                        {% if perms.solicitud.view_solicitud %}
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
                                data-bs-target="#pagesCollapseCombustible" aria-expanded="false"
                                aria-controls="pagesCollapseCombustible">
@@ -106,21 +107,23 @@
                             <div class="collapse" id="pagesCollapseCombustible" aria-labelledby="headingOne"
                                  data-bs-parent="#sidenavAccordionPages">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{% url 'combustible:vehiculo_list' %}">
-                                        <div class="sb-nav-link-icon"><i class="fas fa-arrow-alt-circle-right"></i>
-                                        </div>
-                                        Registro de vehículo
-                                    </a>
-                                    <a class="nav-link" href="{% url 'combustible:consumo_list' %}">
-                                        <div class="sb-nav-link-icon"><i class="fas fa-arrow-alt-circle-right"></i>
-                                        </div>
-                                        Registro de consumo
-                                    </a>
+                                    {% if perms.combustible.view_vehiculo%}
+                                        <a class="nav-link" href="{% url 'combustible:vehiculo_list' %}">
+                                            <div class="sb-nav-link-icon"><i class="fas fa-arrow-alt-circle-right"></i>
+                                            </div>
+                                            Registro de vehículo
+                                        </a>
+                                    {% endif %}
+                                    {% if perms.combustible.view_consumo %}
+                                        <a class="nav-link" href="{% url 'combustible:consumo_list' %}">
+                                            <div class="sb-nav-link-icon"><i class="fas fa-arrow-alt-circle-right"></i>
+                                            </div>
+                                            Registro de consumo
+                                        </a>
+                                    {% endif %}
                                 </nav>
                             </div>
-                        {% endif %}
-
-                        {% if perms.solicitud.view_solicitud %}
+                        {% if perms.mantenimiento.view_mant or mantenimiento.view_mantenimiento%}
                             <a class="nav-link" href="{% url 'mantenimiento:mantenimiento_list' %}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tools"></i></div>
                                 Mantenimiento

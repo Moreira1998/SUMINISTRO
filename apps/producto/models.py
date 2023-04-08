@@ -80,15 +80,15 @@ class Producto(models.Model):
 class Factura(models.Model):
 
     FORMA_PAGO_FAC = (
-        ('TRANSFERENCIA', 'TRANSFERENCIA'),
-        ('CHEQUE', 'CHEQUE'),
-        ('EFECTIVO', 'EFECTIVO'),
-        ('TARJETA', 'TARJETA'),
+        ('Transferencia', 'Transferencia'),
+        ('Cheque', 'Cheque'),
+        ('Efectivo', 'Efectivo'),
+        ('Tarjeta', 'Tarjeta'),
     )
 
     MONEDA = (
-        ('CORDOBAS', 'CORDOBAS'),
-        ('DOLARES', 'DOLARES'),
+        ('Córdobas', 'Córdobas'),
+        ('Dólares', 'Dólares'),
     )
     numFac = models.CharField(max_length=30, primary_key=True)
     proveedor = models.ForeignKey(Proveedor, on_delete=models.CASCADE, null=True)
@@ -99,6 +99,7 @@ class Factura(models.Model):
     tipoCambio = models.FloatField()
     formaPago = models.CharField(max_length=100, null=True, choices=FORMA_PAGO_FAC)
     detalle = models.CharField(max_length=100, null=True)
+    status = models.BooleanField(default=False)
     fecha = models.DateField()
 
     class Meta:
@@ -106,10 +107,10 @@ class Factura(models.Model):
         verbose_name_plural = 'Factura'
 
     def TotalDolar(self):
-        if self.moneda == 'CORDOBAS':
+        if self.moneda == 'Córdobas':
             dolar = self.total / self.tipoCambio
             return round(dolar, 2)
-        if self.moneda == 'DOLARES':
+        if self.moneda == 'Dólares':
             dolar = self.total * self.tipoCambio
             return round(dolar, 2)
         pass
@@ -122,7 +123,7 @@ class Factura(models.Model):
 # Model Factura
 
 class DetalleFactura(models.Model):
-    numFac = models.CharField(max_length=30)
+    numFac = models.ForeignKey(Factura, on_delete=models.CASCADE, null=True)
     producto = models.ForeignKey(Producto, on_delete=models.CASCADE, null=True)
     cantidad = models.IntegerField()
     precio = models.FloatField()

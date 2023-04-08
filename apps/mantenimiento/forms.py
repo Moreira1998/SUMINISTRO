@@ -21,7 +21,7 @@ class ProveedorForm(forms.ModelForm):
             'formaPago': forms.Select(attrs={'class': 'form-control'}),
             'ruc': forms.TextInput(attrs={'class': 'form-control'}),
             'nombre': forms.TextInput(attrs={'class': 'form-control'}),
-            'dirreccion': forms.TextInput(attrs={'class': 'form-control'}),
+            'direccion': forms.TextInput(attrs={'class': 'form-control'}),
             'telefono': forms.NumberInput(attrs={'class': 'form-control'}),
         }
 

@@ -14,6 +14,7 @@ class ProductoList(ListView):
     queryset = Producto.objects.all()
 
 
+
 class ProductoNew(CreateView):
     model = Producto
     form_class = ProductoForm
@@ -141,44 +142,6 @@ class ProveedorDelete(DeleteView):
     success_url = reverse_lazy('producto:proveedor_list')
 
 # ------------------------------------------------------------------------------------>
-# view Factura
-
-
-class FacturaList(ListView):
-    model = Factura
-    template_name = 'producto/factura/factura_list.html'
-    context_object_name = 'factura_list'
-    queryset = Factura.objects.all()
-
-
-class FacturaNew(CreateView):
-    model = Factura
-    form_class = FacturaForm
-    template_name = 'producto/factura/factura_form.html'
-    success_url = reverse_lazy('producto:DetalleFactura_new')
-
-
-class FacturaDetail(DetailView):
-    model = Factura
-    template_name = 'producto/factura/factura__detail.html'
-    queryset = Factura.objects.all()
-
-
-class FacturaUpdate(UpdateView):
-    model = Factura
-    form_class = FacturaForm
-    template_name = 'producto/factura/factura_form.html'
-    success_url = reverse_lazy('producto:factura_list')
-
-
-class FacturaDelete(DeleteView):
-    model = Factura
-    form_class = FacturaForm
-    template_name = 'producto/factura/factura_delete.html'
-    success_url = reverse_lazy('producto:factura_list')
-
-
-# ------------------------------------------------------------------------------------>
 # view DetalleFactura
 
 class DetalleFacturaList(ListView):
@@ -205,6 +168,44 @@ class DetalleFacturaDelete(DeleteView):
     form_class = DetalleFacturaForm
     template_name = 'producto/factura/detalleFactura/detalleFactura_delete.html'
     success_url = reverse_lazy('producto:detalleFactura_list')
+
+
+# ------------------------------------------------------------------------------------>
+# view Factura
+
+
+class FacturaList(ListView):
+    model = Factura
+    template_name = 'producto/factura/factura_list.html'
+    context_object_name = 'factura_list'
+    queryset = Factura.objects.all()
+
+
+class FacturaNew(CreateView):
+    model = Factura
+    form_class = FacturaForm
+    template_name = 'producto/factura/factura_form.html'
+    success_url = reverse_lazy('producto:detalleFactura_new')
+
+
+class FacturaDetail(DetailView):
+    model = Factura
+    template_name = 'producto/factura/factura__detail.html'
+    queryset = Factura.objects.all()
+
+
+class FacturaUpdate(UpdateView):
+    model = Factura
+    form_class = FacturaForm
+    template_name = 'producto/factura/factura_form.html'
+    success_url = reverse_lazy('producto:factura_list')
+
+
+class FacturaDelete(DeleteView):
+    model = Factura
+    form_class = FacturaForm
+    template_name = 'producto/factura/factura_delete.html'
+    success_url = reverse_lazy('producto:factura_list')
 
 # ------------------------------------------------------------------------------------>
 # view Factura Pendiente

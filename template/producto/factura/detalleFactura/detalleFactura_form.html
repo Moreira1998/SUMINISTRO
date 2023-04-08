@@ -53,13 +53,13 @@
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
     <script>
         $(function () {
-            const selectProveedor = $("#id_proveedor");
+            const selectFactura = $("#id_numFac");
             const selectProducto = $("#id_producto");
             $(".datepicker").datepicker({
                 dateFormat: "yy-mm-dd"
             });
-            selectProveedor.select2({
-                placeholder: 'Seleccione el proveedor'
+            selectFactura.select2({
+                placeholder: 'Seleccione facturar'
             });
             selectProducto.select2({
                 placeholder: 'Seleccione el producto'

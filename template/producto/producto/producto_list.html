@@ -1,10 +1,10 @@
 {% extends 'index.html' %}
 {% block pageContent %}
     {% if producto_list %}
-        <h2 class="mt-3">Registro De Insumo</h2>
+        <h2 class="mt-3">Registro De Suministro</h2>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item"><a href="{% url 'inicio' %}">Dashboard</a></li>
-            <li class="breadcrumb-item active">Insumo</li>
+            <li class="breadcrumb-item active">Suministro</li>
         </ol>
         <div class="card mb-4">
             <div class="card-body">
@@ -56,12 +56,12 @@
         <div class="card mb-4">
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>
-                Registro De Insumo
+                Registro De Suministro
                 <div class=" py-3">
                     <a href="{% url 'solicitud:productos_reporte' %}"
                        class="btn btn-success btn-circle">
                         <i class="fas fa-file-excel"></i>
-                        Reporte Insumos
+                        Reporte Suministros
                     </a>
                 </div>
             </div>
@@ -116,10 +116,10 @@
             </div>
         </div>
     {% else %}
-        <h1 class="mt-4">Registro De Insumo</h1>
+        <h1 class="mt-4">Registro De Suministro</h1>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item"><a href="{% url 'inicio' %}">Dashboard</a></li>
-            <li class="breadcrumb-item active">Insumo</li>
+            <li class="breadcrumb-item active">Suministro</li>
         </ol>
         <div class="row">
             <div class="col-xl-3 col-md-6">

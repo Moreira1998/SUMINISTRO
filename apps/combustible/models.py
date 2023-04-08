@@ -12,7 +12,7 @@ from django.db import models
 class Vehiculo(models.Model):
     VEHICULO = (
         ('Motocicleta', 'Motocicleta'),
-        ('Microbus', 'Microbus'),
+        ('Microbús', 'Microbús'),
         ('Camioneta', 'Camioneta'),
         ('Carro', 'Carro')
     )

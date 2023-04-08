@@ -12,7 +12,7 @@ class Proveedor(models.Model):
     nombre = models.CharField(max_length=100, null=True)
     ruc = models.CharField(max_length=100, null=True, blank=True)
     telefono = models.CharField(max_length=100, null=True)
-    dirreccion = models.CharField(max_length=100, null=True)
+    direccion = models.CharField(max_length=100, null=True)
     formaPago = models.CharField(max_length=100, null=True, choices=FORMA_PAGO_PV)
 
     def __str__(self):

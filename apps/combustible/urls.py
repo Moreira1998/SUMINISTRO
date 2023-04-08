@@ -34,7 +34,7 @@ urlpatterns = [
 
     path('consumoList', login_required(ConsumoList.as_view()), name='consumo_list'),
     path('consumoNew', login_required(ConsumoNew.as_view()), name='consumo_new'),
-    path('consumoDetail/<int:pk>', login_required(ConsumoDetail.as_view()), name='consumo_detail'),
+    path('consumoDetail/<str:pk>', login_required(ConsumoDetail.as_view()), name='consumo_detail'),
     path('consumoUpdate/<str:pk>', login_required(ConsumoUpdate.as_view()), name='consumo_update'),
     path('consumoDelete/<str:pk>', login_required(ConsumoDelete.as_view()), name='consumo_delete'),
     path('reporteExcelConsumo', login_required(ReporteExcelConsumo.as_view()), name='consumo_report'),
