@@ -228,17 +228,26 @@ class DespacharPoducto(RedirectView):
 
     def get(self, request, *args, **kwargs):
         # obtenemos la factura desde el id
-        factura = Factura.objects.get(numFac=self.kwargs['pk'])
+        factura = Factura.objects.\
+            prefetch_related('detallefactura_set').\
+            get(numFac=self.kwargs['pk'])
         # obtenemos el id del producto desde la factura
-        producto = Producto.objects.get(id=factura.producto.id)
-        # obtenemos la cantidad facturada
-        cantidad = factura.cantidad
-        # la restamos del stock
-        producto.cantidad += cantidad
+        detalles = factura.detallefactura_set.all()
+        cantidades_por_producto = {}
+        for detalle in detalles:
+            producto_id = detalle.producto.pk
+            cantidad = detalle.cantidad
+            if not cantidades_por_producto.get(producto_id):
+                cantidades_por_producto[producto_id] = 0
+            cantidades_por_producto[producto_id] += cantidad
+
+        for producto_id, cantidad in cantidades_por_producto.items():
+            producto = Producto.objects.filter(id=producto_id).first()
+            producto.cantidad += cantidad
+            producto.save()
+
         # Cambiamos el status
         factura.status = True
-        # guardamos los cambiosde producto
-        producto.save()
         # guardamos los cambio de solicitud
         factura.save()
 

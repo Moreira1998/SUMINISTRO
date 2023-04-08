@@ -47,11 +47,11 @@ class ConsumoForm(forms.ModelForm):
         }
         widgets = {
             'vehiculo': forms.Select(attrs={'class': 'w-100 form-control js-example-basic-single'}),
-            'litros': forms.NumberInput(attrs={'class': 'form-control'}),
-            'monto': forms.NumberInput(attrs={'class': 'form-control'}),
-            'factura': forms.TextInput(attrs={'class': 'form-control'}),
-            'km_inicio': forms.NumberInput(attrs={'class': 'form-control'}),
-            'km_fin': forms.NumberInput(attrs={'class': 'form-control'}),
+            'litros': forms.NumberInput(attrs={'class': 'form-control', 'min': 0}),
+            'monto': forms.NumberInput(attrs={'class': 'form-control', 'min': 0}),
+            'factura': forms.TextInput(attrs={'class': 'form-control', 'min': 0}),
+            'km_inicio': forms.NumberInput(attrs={'class': 'form-control', 'min': 0}),
+            'km_fin': forms.NumberInput(attrs={'class': 'form-control', 'min': 0}),
             'fecha': forms.DateInput(attrs={'class': 'form-control datepicker', 'autocomplete': 'off'}),
         }
 

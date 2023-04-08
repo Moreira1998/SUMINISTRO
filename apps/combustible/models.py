@@ -1,5 +1,5 @@
 from datetime import timezone
-
+from django.core.validators import MinValueValidator
 from django.db import models
 
 
@@ -44,10 +44,10 @@ class Consumo(models.Model):
     vehiculo = models.ForeignKey(Vehiculo, on_delete=models.CASCADE, null=True)
     factura = models.CharField(max_length=100, primary_key=True)
     fecha = models.DateField()
-    monto = models.FloatField()
-    litros = models.FloatField()
-    km_inicio = models.FloatField()
-    km_fin = models.FloatField()
+    monto = models.FloatField(validators=[MinValueValidator(0)])
+    litros = models.FloatField(validators=[MinValueValidator(0)])
+    km_inicio = models.FloatField(validators=[MinValueValidator(0)])
+    km_fin = models.FloatField(validators=[MinValueValidator(0)])
 
     class Meta:
         verbose_name = 'Registro Vehicular'

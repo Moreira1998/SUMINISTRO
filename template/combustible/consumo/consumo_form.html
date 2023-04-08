@@ -38,7 +38,7 @@
                     </div>
                     <div class="col">
                         <label for="#">{{ form.km_fin.label }}</label>
-                        {{ form.km_fin}}
+                        {{ form.km_fin }}
                     </div>
                     <div class="col">
                         <label for="#">{{ form.fecha.label }}</label>
@@ -61,13 +61,22 @@
     <script>
         $(function () {
             const selectFactura = $("#id_vehiculo");
-            $( ".datepicker" ).datepicker({
+            $(".datepicker").datepicker({
                 dateFormat: "yy-mm-dd"
             });
             selectFactura.select2({
                 placeholder: 'Vehiculo'
             });
             $('.select2-container').addClass('w-100');
+
+            $('input[type="number"]')
+                .on('input', function () {
+                    const min = $(this).attr('min');
+                    if (min !== undefined) {
+                        const value = Number($(this).val());
+                        if (value < Number(min)) return $(this).val(null);
+                    }
+                });
         });
 
     </script>
