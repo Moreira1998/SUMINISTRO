@@ -50,12 +50,14 @@
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Controles</div>
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages"
-                           aria-expanded="false" aria-controls="collapsePages">
-                            <div class="sb-nav-link-icon"><i class="fas fa-boxes"></i></div>
-                            Suministro
-                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                        </a>
+                        {% if perms.admin.view_logentry or perms.solicitud.view_solicitud %}
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages"
+                               aria-expanded="false" aria-controls="collapsePages">
+                                <div class="sb-nav-link-icon"><i class="fas fa-boxes"></i></div>
+                                Suministro
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                       {% endif %}
                         <div class="collapse" id="collapsePages" aria-labelledby="headingTwo"
                              data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
@@ -97,7 +99,7 @@
                                 {% endif %}
                             </nav>
                         </div>
-                            {% if perms.combustible.view_vehiculo and perms.combustible.view_consumo%}
+                            {% if perms.combustible.view_vehiculo or perms.combustible.view_consumo%}
                                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
                                    data-bs-target="#pagesCollapseCombustible" aria-expanded="false"
                                    aria-controls="pagesCollapseCombustible">

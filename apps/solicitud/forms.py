@@ -15,7 +15,7 @@ class SolicitudForm(forms.ModelForm):
             'area': 'Área'
         }
         widgets = {
-            'producto': forms.RadioSelect(),
+            'producto': forms.RadioSelect(attrs={'class': 'form-control' 'autocomplete:' 'off'}),
             'cantidad': forms.NumberInput(attrs={'class': 'form-control'}),
             'fecha': forms.DateInput(),
             'area': forms.Select(attrs={'class': 'form-control'}),

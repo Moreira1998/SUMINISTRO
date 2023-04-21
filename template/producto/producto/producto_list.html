@@ -69,19 +69,16 @@
                 <table id="datatablesSimple">
                     <thead>
                     <tr>
-                        <th scope="col">Id</th>
                         <th scope="col">Nombre</th>
-                        <th scope="col">Categoría</th>
                         <th scope="col">Marca</th>
                         <th scope="col">Cantidad</th>
                         <th scope="col">Acciones</th>
                     </tr>
                     </thead>
                     <tfoot>
-                    <tr>
+                    <tr
                         <th scope="col">Id</th>
                         <th scope="col">Nombre</th>
-                        <th scope="col">Categoría</th>
                         <th scope="col">Marca</th>
                         <th scope="col">Cantidad</th>
                         <th scope="col">Acciones</th>
@@ -90,9 +87,7 @@
                     <tbody>
                     {% for producto in producto_list %}
                         <tr>
-                            <td>{{ producto.id }}</td>
                             <td>{{ producto.nombre }}</td>
-                            <td>{{ producto.categoria }}</td>
                             <td>{{ producto.marca }}</td>
                             <td>{{ producto.cantidad }}</td>
                             <td>
@@ -172,4 +167,4 @@
             </div>
         </div>
     {% endif %}
-{% endblock %}
+{% endblock

@@ -76,6 +76,10 @@
                         const value = Number($(this).val());
                         if (value < Number(min)) return $(this).val(null);
                     }
+                    let inicio = document.getElementById('id_km_inicio').value;
+                    let fin = document.getElementById('id_km_fin').value;
+                    if (inicio > fin) return $(this).val(null);
+
                 });
         });
 
