@@ -103,7 +103,9 @@ DATABASES = {
         'HOST': 'db-postgresql-nyc1-84169-do-user-8181301-0.b.db.ondigitalocean.com',
         'PORT': '25060',
     }
-}   
+}
+
+DISABLE_COLLECTSTATIC=1
 
 db_from_env = dj_database_url.config(conn_max_age=600)
 DATABASES['default'].update(db_from_env)
