@@ -103,13 +103,15 @@ DATABASES = {
         'HOST': 'db-postgresql-nyc1-84169-do-user-8181301-0.b.db.ondigitalocean.com',
         'PORT': '25060',
     }
-}
+}   
 
 db_from_env = dj_database_url.config(conn_max_age=600)
 DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
+
+DISABLE_COLLECTSTATIC = 1
 
 AUTH_PASSWORD_VALIDATORS = [
     {
