@@ -111,7 +111,6 @@ DATABASES['default'].update(db_from_env)
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
-DISABLE_COLLECTSTATIC = 1
 
 AUTH_PASSWORD_VALIDATORS = [
     {
