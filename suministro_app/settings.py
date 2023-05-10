@@ -28,7 +28,8 @@ SECRET_KEY = 'django-insecure-r0hjif!+z1$_t$$bpk%m+n%c0t8nx#mk9#_$klxcv%_&&@0l)1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'octopus-app-ivqp7.ondigitalocean.app']
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'lionfish-app-9hfmt.ondigitalocean.app']
+
 
 # Application definition
 
@@ -89,17 +90,18 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'suministro_app.wsgi.application'
 
+
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'db_suministro',
-        'USER': 'postgres',
-        'PASSWORD': '141115',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': 'defaultdb',
+        'USER': 'doadmin',
+        'PASSWORD': 'AVNS_WaGCIhpe1G58ouTBgRZ',
+        'HOST': 'db-postgresql-nyc1-84169-do-user-8181301-0.b.db.ondigitalocean.com',
+        'PORT': '25060',
     }
 }
 
@@ -108,6 +110,7 @@ DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -124,6 +127,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
@@ -137,6 +141,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 '''
@@ -146,14 +151,16 @@ STATICFILES_DIRS = [
 ]
 MEDIA_DIRS = [
     os.path.join(BASE_DIR, 'media/'),
-
+    
 ]
 '''
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
