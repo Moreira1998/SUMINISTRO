@@ -30,7 +30,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'lionfish-app-9hfmt.ondigitalocean.app']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -90,7 +89,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'suministro_app.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
@@ -126,7 +124,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
@@ -140,7 +137,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 '''
@@ -150,7 +146,7 @@ STATICFILES_DIRS = [
 ]
 MEDIA_DIRS = [
     os.path.join(BASE_DIR, 'media/'),
-    
+
 ]
 '''
 STATIC_URL = '/static/'
