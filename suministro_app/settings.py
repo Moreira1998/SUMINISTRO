@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-r0hjif!+z1$_t$$bpk%m+n%c0t8nx#mk9#_$klxcv%_&&@0l)1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'lionfish-app-9hfmt.ondigitalocean.app']
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'orca-app-j7gmd.ondigitalocean.app']
 
 # Application definition
 
