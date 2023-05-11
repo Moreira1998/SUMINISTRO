@@ -22,3 +22,5 @@ class Solicitud(models.Model):
 
     def __str__(self):
         return str(self.producto)
+
+#
