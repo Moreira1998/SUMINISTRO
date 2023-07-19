@@ -44,7 +44,7 @@ class FacturaForm(forms.ModelForm):
             'tipoCambio': 'Tipo de cambio',
             'formaPago': 'Forma de pago',
             'detalle': 'Detalle Requisa',
-            'fecha': 'Fecha facturación',
+            'fecha': 'Fecha Requisa',
 
         }
         widgets = {
@@ -74,7 +74,7 @@ class MantenimientoForm(forms.ModelForm):
             'empresa': 'Empresa',
             'autorizado': 'Autorizado por',
             'realizado': 'Realizado por',
-            'factura': 'Factura',
+            'factura': 'Requisa',
             'comentario': 'Comentario',
             'fecha': 'Fecha',
         }
