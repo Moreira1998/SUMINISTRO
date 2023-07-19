@@ -32,7 +32,7 @@
                         <label for=""><b>Realizado: </b> {{ mantenimiento.realizado }}</label>
                     </div>
                     <div class="col border-bottom m-lg-3">
-                        <label for=""><b>factura:</b> {% for factura in mantenimiento.factura.all %}
+                        <label for=""><b>Requisa:</b> {% for factura in mantenimiento.factura.all %}
                             {{ factura }},{% empty %} No hay factura relacionada
                             {% endfor %}</label>
                     </div>
