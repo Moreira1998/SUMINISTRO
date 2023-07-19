@@ -1,10 +1,10 @@
 {% extends 'index.html' %}
 {% block pageContent %}
     {% if factura_list %}
-        <h2 class="mt-3">Registro De Factura</h2>
+        <h2 class="mt-3">Registro De Requisa</h2>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item"><a href="{% url 'producto:producto_list' %}">Suministro</a></li>
-            <li class="breadcrumb-item active">Factura</li>
+            <li class="breadcrumb-item active">Requisa</li>
         </ol>
         <div class="card mb-4">
             <div class="card-body">
@@ -18,13 +18,13 @@
         <div class="card mb-4">
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>
-                Registro De Factura
+                Registro De Requisa
             </div>
             <div class="card-body">
                 <table id="datatablesSimple">
                     <thead>
                     <tr>
-                        <th scope="col">Nº Factura</th>
+                        <th scope="col">Nº Requisa</th>
                         <th scope="col">Proveedor</th>
                         <th scope="col">Total</th>
                         <th scope="col">T/C</th>
@@ -35,7 +35,7 @@
                     </thead>
                     <tfoot>
                     <tr>
-                        <th scope="col">Nº Factura</th>
+                        <th scope="col">Nº Requisa</th>
                         <th scope="col">Proveedor</th>
                         <th scope="col">Total</th>
                         <th scope="col">T/C</th>
@@ -107,10 +107,10 @@
             </div>
         </div>
     {% else %}
-        <h1 class="mt-4">Registro De Factura</h1>
+        <h1 class="mt-4">Registro De Requisa</h1>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item"><a href="{% url 'producto:producto_list' %}">Suministro</a></li>
-            <li class="breadcrumb-item active">Factura</li>
+            <li class="breadcrumb-item active">Requisa</li>
         </ol>
         <div class="card mb-4">
             <div class="card-body">

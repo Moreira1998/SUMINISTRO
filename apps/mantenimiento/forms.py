@@ -35,7 +35,7 @@ class FacturaForm(forms.ModelForm):
         model = Factura
         fields = '__all__'
         labels = {
-            'numFac': 'Número de factura',
+            'numFac': 'Número de Requisa',
             'proveedor': 'Proveedor',
             'moneda': 'Tipo de moneda',
             'iva': 'Detalle IVA',

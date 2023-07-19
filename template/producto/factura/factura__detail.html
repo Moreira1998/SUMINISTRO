@@ -6,19 +6,19 @@
         </div>
     {% endif %}
     <ol class="breadcrumb mb-4 m-lg-3">
-        <li class="breadcrumb-item"><a href="{% url 'producto:factura_list' %}">Factura</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'producto:factura_list' %}">Requisa</a></li>
         <li class="breadcrumb-item active">Registro</li>
     </ol>
     <div class="card shadow-lg border-0 rounded-lg mt-5 mx-4">
         <div class="card-header">
-            <strong>Registro De Factura</strong> // {{ factura.fecha }}
+            <strong>Registro De Requisa</strong> // {{ factura.fecha }}
         </div>
 
         <div class="card-body">
             <form method="post">{% csrf_token %}
                 <div class="row">
                     <div class="col border-bottom m-lg-3">
-                        <label for=""><b>Factura:</b> {{ factura.numFac }}</label>
+                        <label for=""><b>Requisa:</b> {{ factura.numFac }}</label>
                     </div>
                     <div class="col border-bottom m-lg-3">
                         <label for=""><b>Producto: </b> {{ factura.producto }}</label>

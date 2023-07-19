@@ -1,10 +1,10 @@
 {% extends 'index.html' %}
 {% block pageContent %}
     {% if detalleFactura_list %}
-        <h2 class="mt-3">Registro Detalle Factura</h2>
+        <h2 class="mt-3">Registro Detalle Requisa</h2>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item"><a href="{% url 'producto:factura_list' %}">Factura</a></li>
-            <li class="breadcrumb-item active">Detalle Factura</li>
+            <li class="breadcrumb-item active">Detalle Requisa</li>
         </ol>
         <div class="card mb-4">
             <div class="card-body">
@@ -18,13 +18,13 @@
         <div class="card mb-4">
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>
-                Registro Detalle Factura
+                Registro Detalle Requisa
             </div>
             <div class="card-body">
                 <table id="datatablesSimple">
                     <thead>
                     <tr>
-                        <th scope="col">Número factura</th>
+                        <th scope="col">Número Requisa</th>
                         <th scope="col">Producto</th>
                         <th scope="col">Cantidad</th>
                         <th scope="col">Precio</th>
@@ -33,7 +33,7 @@
                     </thead>
                     <tfoot>
                     <tr>
-                        <th scope="col">Agregar factura</th>
+                        <th scope="col">Agregar Requisa</th>
                         <th scope="col">Producto</th>
                         <th scope="col">Cantidad</th>
                         <th scope="col">Precio</th>
@@ -64,10 +64,10 @@
             </div>
         </div>
     {% else %}
-        <h1 class="mt-4">Registro Detalle Factura</h1>
+        <h1 class="mt-4">Registro Detalle Requisa</h1>
         <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item"><a href="{% url 'producto:factura_list' %}">Factura</a></li>
-            <li class="breadcrumb-item active">Detalle Factura</li>
+            <li class="breadcrumb-item"><a href="{% url 'producto:factura_list' %}">Requisa</a></li>
+            <li class="breadcrumb-item active">Detalle Requisa</li>
         </ol>
         <div class="card mb-4">
             <div class="card-body">
