@@ -27,7 +27,6 @@
                         <th scope="col">Nombre</th>
                         <th scope="col">Ruc</th>
                         <th scope="col">Teléfono</th>
-                        <th scope="col">Dirección</th>
                         <th scope="col">Forma de pago</th>
                         <th scope="col">Acción</th>
                     </tr>
@@ -37,7 +36,6 @@
                         <th scope="col">Nombre</th>
                         <th scope="col">Ruc</th>
                         <th scope="col">Teléfono</th>
-                        <th scope="col">Dirección</th>
                         <th scope="col">Forma de pago</th>
                         <th scope="col">Acción</th>
                     </tr>
@@ -52,7 +50,6 @@
                                 <td>{{ proveedor.ruc }}</td>
                             {% endif %}
                             <td>{{ proveedor.telefono }}</td>
-                            <td>{{ proveedor.dirreccion }}</td>
                             <td>{{ proveedor.formaPago }}</td>
                             <td class="col-lg-2 col-md-2">
                                 <a href="{% url 'mantenimiento:proveedor_update' proveedor.id%}"
