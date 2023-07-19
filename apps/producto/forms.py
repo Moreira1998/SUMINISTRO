@@ -103,7 +103,7 @@ class FacturaForm(forms.ModelForm):
             'tipoCambio': 'Tipo de cambio',
             'formaPago': 'Forma de pago',
             'detalle': 'Detalle Requisa',
-            'fecha': 'Fecha facturación',
+            'fecha': 'Fecha Requisa',
 
         }
         widgets = {
