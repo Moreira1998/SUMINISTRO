@@ -38,8 +38,8 @@ class ConsumoForm(forms.ModelForm):
         fields = '__all__'
         labels = {
             'vehiculo': 'Seleccione el vehículo',
-            'factura': 'Número de factura',
-            'monto': 'Monto facturado',
+            'factura': 'Número de Requisa',
+            'monto': 'Monto Requisa',
             'litros': 'Litros',
             'km_inicio': 'Km inicial',
             'km_fin': 'Km final',
