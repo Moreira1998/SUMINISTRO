@@ -102,7 +102,7 @@ class FacturaForm(forms.ModelForm):
             'total': 'Total',
             'tipoCambio': 'Tipo de cambio',
             'formaPago': 'Forma de pago',
-            'detalle': 'Detalle factura',
+            'detalle': 'Detalle Requisa',
             'fecha': 'Fecha facturación',
 
         }

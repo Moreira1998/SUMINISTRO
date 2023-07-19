@@ -43,7 +43,7 @@ class FacturaForm(forms.ModelForm):
             'total': 'Total córdobas',
             'tipoCambio': 'Tipo de cambio',
             'formaPago': 'Forma de pago',
-            'detalle': 'Detalle factura',
+            'detalle': 'Detalle Requisa',
             'fecha': 'Fecha facturación',
 
         }
